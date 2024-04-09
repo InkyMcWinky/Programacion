@@ -1,0 +1,134 @@
+<!----------- Carrusel ------------>
+<div id="myCarousel" class="slideshow-container">
+    <div class="mySlides fade" style="display: block;">
+        <img src="images/Slider_1.gif" style="width: 100%">
+    </div>
+
+    <div class="mySlides fade" style="display: block;">
+        <img src="images/Slider_2.gif" style="width: 100%">
+
+    </div>
+
+    <div class="mySlides fade" style="display: block;">
+        <img src="images/Slider_3.gif" style="width: 100%">
+    </div>
+
+    <div class="mySlides fade" style="display: block;">
+        <img src="images/Slider_4.gif" style="width: 100%">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+    <div id="dots-container">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+    </div>
+
+</div>
+
+
+<section id="searchBar">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
+    <div id="search"><img src="images/lupa.svg"></div>
+</section>
+
+<section class="container categories">
+            <h2 class="text-center">Product Categories</h2>
+            <div id="categories-list" class="categories-list">
+                <div class="category">
+                    <img src="images/ROLLO.png">
+                    <a href="#">BUBBLE WRAP</a>
+                </div>
+                <div class="category">
+                    <img src="images/ROLLO.png">
+                    <a href="#">BUBBLE WRAP</a>
+                </div>
+                <div class="category">
+                    <img src="images/ROLLO.png">
+                    <a href="#">BUBBLE WRAP</a>
+                </div>
+                <div class="category">
+                    <img src="images/ROLLO.png">
+                    <a href="#">BUBBLE WRAP</a>
+                </div>
+
+                <div class="category">
+                    <img src="images/ROLLO.png">
+                    <a href="#">BUBBLE WRAP</a>
+                </div>
+                <div class="category">
+                    <img src="images/ROLLO.png">
+                    <a href="#">BUBBLE WRAP</a>
+                </div>
+                <div class="category">
+                    <img src="images/ROLLO.png">
+                    <a href="#">BUBBLE WRAP</a>
+                </div>
+                <div class="category">
+                    <img src="images/ROLLO.png">
+                    <a href="#">BUBBLE WRAP</a>
+                </div>
+
+            </div>
+
+        </section>
+
+<script>
+    var slideIndex = 0;
+    $("myCarousel").carousel(showSlidesAuto(slideIndex));
+
+    function showSlidesAuto() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlidesAuto, 4000);
+    }
+
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+
+    }
+</script>
