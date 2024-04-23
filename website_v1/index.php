@@ -868,8 +868,9 @@ include 'conecta.php';
         <p id="copy">S. World Packaging Supplies © All Rights Reserved</p>
     </div>
 
-    <script src="javascript/scripts.js"></script>
-
 </body>
+
+    
+<script src="javascript/scripts.js"></script>
 
 </html>

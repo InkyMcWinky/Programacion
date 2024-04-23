@@ -76,4 +76,5 @@
     </div>
 </section>
 
-<script src="javascript/scripts.js"></script>
+<script src="javascript/script_category.js"></script>
+<script src="javascript/scripts_inicio.js"></script>
