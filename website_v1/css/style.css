@@ -796,14 +796,13 @@ td {
 /* ---------- log in ---------- */
 .contenedor-logs {
     width: 100%;
-    height: 68rem;
+    height: 80rem;
 }
 
 .logs {
-    width: 42%;
+    width: 60%;
     display: block;
-    float: left;
-    margin: 0;
+    margin: auto;
     padding: 4%;
     background-color: transparent;
 
@@ -837,7 +836,7 @@ td {
 .contenedor-logs input[type=submit] {
     width: 40%;
     padding: 2rem;
-    margin: 2rem 30%;
+    margin: 3rem 30%;
     border-radius: 50px;
     font-size: 3.2rem;
     font-family: 'Dubai Bold';
@@ -845,7 +844,6 @@ td {
 
 .logs span {
     font-size: 2.2rem;
-    margin: 2rem 0;
     float: right;
     color: #EFF3FA;
 }
