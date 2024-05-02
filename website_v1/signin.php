@@ -43,7 +43,7 @@ if (isset($_POST['email']) && isset($_POST['pswd']) && isset($_POST['confirm_psw
 }
 ?>
 
-<div class="contenedor-logs">
+<div class="contenedor-logs sig">
     <!-- Formulario de registro -->
     <form id="sig" class="logs" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <h2>Create an account</h2>
