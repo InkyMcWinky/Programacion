@@ -159,6 +159,11 @@ html {
     float: left;
 }
 
+/*----- No mostrar -----*/
+.escondido {
+    display: none;
+}
+
 /*----- Telefono -----*/
 #cell {
     width: 200px;
@@ -797,6 +802,10 @@ td {
 .contenedor-logs {
     width: 100%;
     height: 80rem;
+}
+.contenedor-logs sig{
+    width: 100%;
+    height: 100rem;
 }
 
 .logs {
