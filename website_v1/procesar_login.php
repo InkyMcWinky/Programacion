@@ -1,33 +1,44 @@
 <?php
-
 // Verificar si se enviaron datos mediante el método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si se enviaron datos de inicio de sesión
-    if (isset($_POST['correo']) && isset($_POST['contraseña'])) {
+    if (isset($_POST['email']) && isset($_POST['pwd'])) {
         // Incluir el archivo de conexión a la base de datos
         require_once "conecta.php";
 
-        $email = $_POST['correo'];
-        $password = $_POST['contraseña'];
+        $email = $_POST['email'];
+        $password = $_POST['pwd'];
 
-        // Consulta SQL para buscar el usuario en la base de datos
-        $consulta = "SELECT * FROM usuarios WHERE correo='$email' AND contraseña='$password'";
-        $resultado = $conexion->query($consulta);
+        // Consulta SQL preparada para buscar el usuario en la base de datos
+        $consulta = $conexion->prepare("SELECT * FROM usuarios WHERE correo=? AND contraseña=?");
+        $consulta->bind_param("ss", $email, $password);
+        $consulta->execute();
+        $resultado = $consulta->get_result();
 
         if ($resultado->num_rows > 0) {
-            // Usuario autenticado, redireccionar a la página principal
-            //header("Location: index.php");
-            echo"Listo";
+            // Usuario autenticado, iniciar sesión
+            session_start();
+
+            // Establecer variables de sesión
+            $_SESSION['loggedin'] = true;
+            $_SESSION['email'] = $email;
+
+            // Devolver un mensaje JSON indicando el éxito del inicio de sesión
+            echo json_encode(array("success" => true, "message" => "Inicio de sesión exitoso"));
             exit();
         } else {
-            // Credenciales incorrectas, redireccionar a la página de inicio de sesión con un mensaje de error
-            echo"Nada";
+            // Credenciales incorrectas, devolver un mensaje JSON indicando el fallo del inicio de sesión
+            echo json_encode(array("success" => false, "message" => "Credenciales incorrectas"));
             exit();
         }
+    } else {
+        // Si no se enviaron los datos de inicio de sesión, devolver un mensaje JSON indicando acceso no autorizado
+        echo json_encode(array("success" => false, "message" => "Datos de inicio de sesión no proporcionados"));
+        exit();
     }
+} else {
+    // Si se intenta acceder directamente al archivo procesar_login.php sin datos POST, devolver un mensaje JSON indicando acceso no autorizado
+    echo json_encode(array("success" => false, "message" => "Acceso no autorizado"));
+    exit();
 }
-
-// Si se intenta acceder directamente al archivo procesar_login.php sin datos POST, redireccionar a la página de inicio de sesión
-header("Location: login.php");
-exit();
 ?>

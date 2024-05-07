@@ -237,10 +237,3 @@
 
 
 </div>
-
-<script>
-    
-    
-        
-    
-</script>

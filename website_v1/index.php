@@ -20,6 +20,7 @@ include 'conecta.php';
     <link rel="preconnect" href="fonts/Dubai-Medium.ttf">
     <link rel="preconnect" href="fonts/Dubai-Bold.ttf">
 
+
     <!-- scripts -->
     <link rel="stylesheet" href="./lib/jquery-ui/jquery-ui.css" rel="stylesheet">
     <!--jquery ui -->
@@ -28,6 +29,7 @@ include 'conecta.php';
     <script src="./lib/jquery.mask.min.js"></script><!-- jquery mask -->
     <script src="./lib/jquery-ui/jquery-ui.js"></script><!-- jquery ui -->
     <script src="./lib/quill-1.3.6/quill.js"></script><!-- quill -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
@@ -63,11 +65,21 @@ include 'conecta.php';
                             </div>
                         </div>
                         <!-- Boton Log in -->
-                        <div id="accountBtn"><img id="picon" src="images/Profile.svg"><a href="#">
+                        <div id="accountBtn" onclick="cargarLogin()">
+                            <img id="picon" src="images/Profile.svg" />
+                            <a href="#">
                                 <h4 id="logIn">Log in</h4>
                             </a>
-
                         </div>
+
+                        <!-- Botón Log out -->
+                        <div id="logoutBtn" onclick="cerrarSesion()">
+                            <img id="picon" src="images/Profile.svg" />
+                            <a href="#">
+                                <h4>Log out</h4>
+                            </a>
+                        </div>
+
                         <!-- Barra de separacion -->
                         <div id="bar"></div>
                         <nav class="main-nav-container">
@@ -870,7 +882,7 @@ include 'conecta.php';
 
 </body>
 
-    
+
 <script src="javascript/scripts.js"></script>
 
 </html>

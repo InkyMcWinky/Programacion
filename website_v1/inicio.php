@@ -76,5 +76,20 @@
     </div>
 </section>
 
+<?php
+// Verificar si hay un mensaje de éxito en la URL
+if (isset($_GET['success']) && $_GET['success'] == 1) {
+    // Mostrar notificación de registro exitoso en inglés utilizando SweetAlert2
+    echo '<script>
+            Swal.fire({
+                icon: "success",
+                title: "Registration successful",
+                showConfirmButton: false,
+                timer: 1500 // Cierra automáticamente la notificación después de 1.5 segundos
+            });
+          </script>';
+}
+?>
 <script src="javascript/script_category.js"></script>
 <script src="javascript/scripts_inicio.js"></script>
+
