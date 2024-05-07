@@ -39,10 +39,7 @@ $(document).ready(function() {
                 // Verificar si el inicio de sesión fue exitoso
                 if (response.success) {
                     // Si el inicio de sesión fue exitoso, carga inicio.php en el contenedor deseado
-                    $('#contenedor').load('inicio.php');
-                    // Cambiar el estado de la sesión y el texto del botón si es necesario
-                    // isLoggedIn = true;
-                    // $('#logIn').text('Log out');
+                    window.location.reload();
 
                     // Muestra la notificación de éxito usando SweetAlert2
                     Swal.fire({

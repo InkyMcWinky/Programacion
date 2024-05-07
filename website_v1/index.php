@@ -1,6 +1,7 @@
 <?php
 
 include 'conecta.php';
+include 'check_session.php';
 
 ?>
 
@@ -880,6 +881,10 @@ include 'conecta.php';
         <p id="copy">S. World Packaging Supplies © All Rights Reserved</p>
     </div>
 
+    <div class="oculto">
+            <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
+    </div>
+    
 </body>
 
 

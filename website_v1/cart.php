@@ -76,6 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_to_cart"])) {
     </div>
 </div>
 
+<div class="oculto">
+            <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
+    </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
