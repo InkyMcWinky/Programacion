@@ -10,9 +10,52 @@ $("#btnContact").click(function () {
     $("#contenedor").load("support.php", "#contact");
 });
 
-$("#accountBtn").click(function () {
-    $("#contenedor").load("login.php");
-});
+function cargarLogin() {
+    // Realizar una solicitud al servidor para cargar el formulario de inicio de sesión
+    $('#contenedor').load('login.php', function() {
+        // Una vez que el formulario se ha cargado, verificar el estado de la sesión
+        $.ajax({
+            type: 'GET',
+            url: 'check_session.php',
+            dataType: 'json',
+            success: function(response) {
+                // Verificar si la sesión está iniciada o no
+                if (response.loggedIn === true) {
+                    // Si hay una sesión iniciada, cambiar el texto del botón a "Log out"
+                    $('#accountBtn h4').text('Log out');
+                } else {
+                    // Si no hay una sesión iniciada, mantener el texto del botón como "Log in"
+                    $('#accountBtn h4').text('Log in');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error(error);
+            }
+        });
+    });
+}
+
+
+function cerrarSesion() {
+    $.ajax({
+        type: 'GET',
+        url: 'logout.php', // El archivo PHP que maneja el cierre de sesión
+        success: function(response) {
+            // Si el cierre de sesión fue exitoso, recargar la página para aplicar los cambios
+            location.reload();
+        },
+        error: function(xhr, status, error) {
+            // Manejar cualquier error que ocurra durante el cierre de sesión
+            console.error(error);
+        }
+    });
+}
+
+
+
+//$("#accountBtn").click(function cargarLogin() {
+//    $("#contenedor").load("login.php");
+//});
 
 $("#shopBtn").click(function () {
     $("#contenedor").load("cart.php");
@@ -130,4 +173,5 @@ function hidePolicy() {
 
     document.getElementById("policy-shadow").style.display = "none";
 }
+
 
