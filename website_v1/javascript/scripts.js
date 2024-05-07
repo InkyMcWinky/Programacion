@@ -1,3 +1,29 @@
+$(document).ready(function() {
+    // Una vez que el documento esté listo, verifica el estado de la sesión
+    $.ajax({
+        type: 'GET',
+        url: 'check_session.php',
+        dataType: 'json',
+        success: function(response) {
+            // Verificar si la sesión está iniciada o no
+            if (response.loggedIn === true) {
+                // Actualizar el texto del botón con el nombre del usuario
+                var nombreUsuario = nombre_oculto.innerText;
+                if (nombreUsuario !== "") {
+                    $('#accountBtn h4').text(nombreUsuario);
+                }
+            } else {
+                // Si no hay una sesión iniciada, mantener el texto del botón como "Log in"
+                $('#accountBtn h4').text('Log in');
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+});
+
+
 $("#contenedor").load("inicio.php");
 
 //----- Menu -----
@@ -12,28 +38,10 @@ $("#btnContact").click(function () {
 
 function cargarLogin() {
     // Realizar una solicitud al servidor para cargar el formulario de inicio de sesión
-    $('#contenedor').load('login.php', function() {
-        // Una vez que el formulario se ha cargado, verificar el estado de la sesión
-        $.ajax({
-            type: 'GET',
-            url: 'check_session.php',
-            dataType: 'json',
-            success: function(response) {
-                // Verificar si la sesión está iniciada o no
-                if (response.loggedIn === true) {
-                    // Si hay una sesión iniciada, cambiar el texto del botón a "Log out"
-                    $('#accountBtn h4').text('Log out');
-                } else {
-                    // Si no hay una sesión iniciada, mantener el texto del botón como "Log in"
-                    $('#accountBtn h4').text('Log in');
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
-        });
-    });
+    $('#contenedor').load('login.php');
 }
+
+
 
 
 function cerrarSesion() {
