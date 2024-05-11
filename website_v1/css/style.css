@@ -27,6 +27,10 @@ html {
     font-size: 62.5%;
 }
 
+.oculto {
+    display: none;
+}
+
 /* --------------- MENU --------------- */
 #menu {
     width: 100%;
@@ -140,9 +144,8 @@ html {
 }
 
 
-#accountBtn {
+.accBtn {
     width: auto;
-    display: block;
     float: right;
     background-color: #FFB703;
     border-radius: 50px;
@@ -154,6 +157,13 @@ html {
 }
 
 #logIn {
+    display: block;
+    margin: 4px;
+    font-family: 'Dubai Medium';
+    float: left;
+}
+
+#logOut {
     margin: 4px;
     font-family: 'Dubai Medium';
     float: left;
@@ -467,17 +477,18 @@ a {
 
 .divided {
     display: grid;
-    grid-template-columns: 25% auto;
+    grid-template-columns: 18% auto;
+    height: 80rem;
 }
 
 .menu-a {
     background-color: #FFBF58;
-    font-size: 2.5vw;
+    font-size: 3.5rem;
     font-family: 'Dubai Bold';
 }
 
 .myitem {
-    padding: 2vw;
+    padding: 2rem;
     cursor: pointer;
 }
 
@@ -486,36 +497,72 @@ a {
     background-color: rgba(251, 133, 0, 0.6);
 }
 
+/* ----- User settings -----*/
+.settings {
+    width: 92%;
+    padding: 3%;
+    font-size: 2.4rem;
+}
+
+.settings table {
+    padding: 10% auto;
+}
+
+.settings tr {
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    padding: 0 2%;
+}
+
+.settings td {
+    padding: 1rem 0;
+}
+
+.settings h3 {
+    font-size: 3rem;
+    margin: 1.5rem 0;
+}
+
+.settings h4 {
+    margin: 0;
+    float: left;
+}
+
+.settings p {
+    margin: 0;
+    float: left;
+}
+
+.settings button {
+    border: none;
+    border-radius: 25px;
+    background-color: #2F4875;
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 1.8rem;
+}
+
+/*-------  BOTON BORRAR CUENTA  -------*/
+#btnDeleteAcc {
+    float: right;
+    background-color: rgba(47, 72, 117, 0.3);
+}
+
 #info-c {
     background-color: #fff;
-    width: 67.5vw;
+    width: 100%;
 }
 
 .info-client {
-    display: block;
+    /*display: block;*/
     position: relative;
 }
 
-/*#orders {
-    display: block;
-}*/
 
 .none {
-    font-size: 3vw;
+    font-size: 4rem;
     text-align: center;
     color: #5681C8;
-
-}
-
-.logo-fondo {
-    background-image: url(/images/LOGO%20USA.svg);
-    background-repeat: no-repeat;
-    height: 40vw;
-    background-position: center;
-    background-size: contain;
-    position: relative;
-    background-color: rgb(255, 255, 255);
-    opacity: 25%;
 }
 
 .none h3 {
@@ -525,6 +572,19 @@ a {
     top: -20vw;
 }
 
+.logo-fondo {
+    background-image: url(/images/LOGO%20USA.svg);
+    background-repeat: no-repeat;
+    height: 40rem;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    opacity: 25%;
+}
+
+
+
 table {
     width: 100%;
     text-align: center;
@@ -533,22 +593,24 @@ table {
     overflow-y: hidden;
 }
 
-th {
+.info-client th {
     width: 1%;
     background-color: #5681C8;
-    padding: 5px;
-    font-size: 1.8vw;
+    padding: 01rem;
+    font-size: 2.8rem;
 }
 
-tr:nth-child(odd) {
+.info-client tr:nth-child(odd) {
     background-color: #EFF3FA;
 }
 
-td {
+.info-client td {
     border-color: #5681C8;
-    padding: 4px;
-    font-size: 1.4vw;
+    padding: 0.5rem;
+    font-size: 2rem;
 }
+
+
 
 /* ----------- checkout ---------- */
 .shop-cart-big {
@@ -803,9 +865,10 @@ td {
     width: 100%;
     height: 80rem;
 }
-.contenedor-logs sig{
+
+.sig {
     width: 100%;
-    height: 100rem;
+    height: 125rem;
 }
 
 .logs {
@@ -842,10 +905,12 @@ td {
     border-radius: 5px;
 }
 
-.contenedor-logs input[type=submit] {
+.contenedor-logs input[type=submit],
+#botonSignin {
     width: 40%;
     padding: 2rem;
     margin: 3rem 30%;
+    border: none;
     border-radius: 50px;
     font-size: 3.2rem;
     font-family: 'Dubai Bold';
@@ -883,15 +948,21 @@ span a:active {
     color: #12213B;
 }
 
-#signIn input[type=submit] {
+#botonSignin {
     background-color: #FB8500;
     color: #12213B;
 }
 
-#signIn input[type=submit]:hover,
-#signIn input[type=submit]:active {
+#botonSignin:hover,
+#botonSignin:active {
     background-color: #2F4875;
     color: #EFF3FA;
+}
+
+.error {
+    font-size: 1.8rem;
+    margin-top: 5rem;
+}
 }
 
 /* ----------- Policies ----------- */
@@ -1281,22 +1352,24 @@ footer {
     .title-bar {
         font-size: 22px;
     }
+
     .totales {
         font-size: 24px;
         margin: 1rem 5.6% 2rem 0;
     }
-    
+
     .total {
         right: -2.3em;
         font-size: 26px;
     }
-    
+
     .shop-buttons button {
         padding: 1rem 2rem;
         font-size: 22px;
         border-radius: 50px;
         margin-left: 2.5rem;
     }
+
     /*--------*/
     .footItem h3 {
         font-size: 2.5rem;
@@ -1422,10 +1495,12 @@ footer {
         font-size: 18px;
         grid-template-columns: 45% 17% 10% 14% 13% 1%;
     }
+
     .totales {
         font-size: 22px;
         margin: 1rem 6.2% 2rem 0;
     }
+
     .total {
         right: -2.3em;
         font-size: 24px;
@@ -1880,23 +1955,27 @@ footer {
     .logs span {
         font-size: 1.8rem;
     }
-/*------------------------*/
+
+    /*------------------------*/
     .title-bar {
         padding: 4px 1rem;
     }
+
     .totales {
         font-size: 18px;
         margin: 1rem 6% 2rem 0;
     }
+
     .total {
         right: -2.3em;
         font-size: 20px;
     }
-    
+
 
 }
 
 @media (max-width: 768px) {
+
     .prev,
     .next {
         top: 45%;
@@ -1965,16 +2044,17 @@ footer {
         padding: 8px;
         grid-template-columns: 40% 17% 11% 16% 14% 2%;
     }
-    
+
     .totales {
         font-size: 18px;
         margin: 1rem 6% 2rem 0;
     }
+
     .total {
         right: -6%;
         font-size: 18px;
     }
-    
+
 
     /*-------*/
 
@@ -2148,17 +2228,17 @@ footer {
     #cart {
         display: none;
     }
-    
+
     #cell {
         width: 120px;
         height: auto;
         padding: 0.8rem;
         border-radius: 0 0 15px 15px;
     }
-    
+
     #cell h4 {
         font-size: 1.6rem;
-        margin: auto ;
+        margin: auto;
     }
 
     #btnCarrito,
@@ -2241,49 +2321,53 @@ footer {
     .logs span {
         font-size: 1.6rem;
     }
+
     /*----------------------------*/
-    
+
     .col-25 h2 {
         font-size: 2.6rem;
     }
-.title-bar {
+
+    .title-bar {
         font-size: 12px;
-    padding: 0 ;
-    grid-template-columns: 38% 17% 12% 17% 14% 2%;
+        padding: 0;
+        grid-template-columns: 38% 17% 12% 17% 14% 2%;
     }
+
     #p-label h3 {
         margin-left: 4px;
     }
+
     .item {
         font-size: 12px;
         padding: 8px 4px;
         grid-template-columns: 38% 17% 12% 17% 14% 2%;
 
     }
-    
+
     .delete-btn {
         width: 10px;
         height: 10px;
     }
-    
+
     .totales {
         font-size: 16px;
         margin: 1rem 5% 2rem 0;
     }
-    
+
     .total {
         margin-top: 1rem;
         font-size: 16px;
     }
-    
+
     .shop-buttons button {
         padding: 0.5rem 1rem;
         font-size: 18px;
         border-radius: 50px;
         margin-left: 2rem;
     }
-    
-    
+
+
     /*---------------------------*/
     footer {
         padding-bottom: 5%;
@@ -2322,6 +2406,7 @@ footer {
     .col-25 {
         height: 100vh;
     }
+
     #logo {
         width: 3rem;
         margin: 25px 0;
@@ -2462,7 +2547,7 @@ footer {
     #search {
         left: 84%;
     }
-    
+
     #cell {
         width: 45%;
     }
