@@ -1,4 +1,6 @@
 <?php
+include 'conecta.php';
+$conexion = new mysqli('localhost', 'root', '', 'proyecto_wps');
 include 'check_session.php';
 
 // Verificar si se ha enviado el formulario de agregar al carrito
@@ -8,17 +10,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_to_cart"])) {
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
 
-    // Crear un array asociativo para almacenar los detalles del producto
-    $producto = array(
-        "nombre" => $nombre,
-        "descripcion" => $descripcion,
-        "precio" => $precio
-    );
+    // Verificar si el producto ya está en el carrito
+    $producto_encontrado = false;
+    foreach ($_SESSION["carrito"] as $key => $producto) {
+        if ($producto["nombre"] === $nombre) {
+            // El producto ya está en el carrito, actualiza la cantidad y el precio total
+            $_SESSION["carrito"][$key]["cantidad"] += 1;
+            $_SESSION["carrito"][$key]["precio_total"] = $_SESSION["carrito"][$key]["cantidad"] * $precio;
+            $producto_encontrado = true;
+            break;
+        }
+    }
 
-    // Agregar el producto al carrito
-    $_SESSION["carrito"][] = $producto;
+    // Si el producto no se encontró en el carrito, agrégalo como un nuevo elemento
+    if (!$producto_encontrado) {
+        $producto = array(
+            "nombre" => $nombre,
+            "descripcion" => $descripcion,
+            "precio" => $precio,
+            "cantidad" => 1, // Definir la cantidad inicial como 1
+            "precio_total" => $precio // Inicializamos el precio total al precio del producto
+        );
+
+        // Agregar el producto al carrito
+        $_SESSION["carrito"][] = $producto;
+    }
 }
 
+// Si se hace clic en el botón "Checkout"
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["checkout"])) {
+    // Verificar si hay productos en el carrito
+    if (!empty($_SESSION["carrito"])) {
+        // Obtener el ID del usuario de la sesión
+        $usuarioID = $_SESSION['id']; // Suponiendo que el ID del usuario se almacena en $_SESSION['id']
+
+        // Preparar la consulta SQL para insertar los productos en la tabla de compras
+        $query = "INSERT INTO compras (UsuarioID, ProductoID, Cantidad, PrecioUnitario, FechaCompra, EstadoCompra) VALUES (?, ?, ?, ?, NOW(), 'Pendiente')";
+
+        // Preparar la sentencia
+        $statement = $conexion->prepare($query);
+
+        foreach ($_SESSION["carrito"] as $producto) {
+            // Ejecutar la sentencia para cada producto en el carrito
+            $statement->bind_param("iiid", $usuarioID, $producto["id"], $producto["cantidad"], $producto["precio"]);
+            $statement->execute();
+        }
+
+        // Vaciar el carrito después de completar la compra
+        unset($_SESSION["carrito"]);
+        echo "<script>alert('¡Compra completada con éxito!');</script>";
+        header("Location: index.php");
+    }
+}
 ?>
 
 <div class="col-25">
@@ -48,14 +91,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_to_cart"])) {
 
         <?php
         $total = 0; // Inicializar el total a 0
-        if (!empty($_SESSION["carrito"])) {
+        if (isset($_SESSION["carrito"]) && !empty($_SESSION["carrito"])) {
             foreach ($_SESSION["carrito"] as $key => $producto) {
-                $total += $producto["precio"]; // Sumar el precio de cada producto al total
+                // Calcular el precio total del producto
+                $precio_total_producto = $producto["cantidad"] * $producto["precio"];
+                $total += $precio_total_producto; // Sumar el precio total de cada producto al total
                 ?>
                 <div class="item" data-key="<?php echo $key; ?>">
                     <span class="prod-desc"><?php echo $producto["nombre"]; ?></span>
-                    <span class="prod-qty">1</span> <!-- Por ahora, siempre asumimos una cantidad de 1 -->
+                    <span class="prod-qty"><?php echo $producto["cantidad"]; ?></span> <!-- Mostrar la cantidad del producto -->
                     <span class="prod-price price-<?php echo $key; ?>">$<?php echo $producto["precio"]; ?></span>
+                    <span class="prod-total"><?php echo $precio_total_producto; ?></span> <!-- Mostrar el precio total del producto -->
                     <span class="delete-btn">X</span> <!-- Icono de eliminar el producto del carrito -->
                 </div>
                 <?php
@@ -71,14 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_to_cart"])) {
     </div>
 
     <div class="shop-buttons">
-        <button id="quote">Pricing request</button>
-        <button id="check">Checkout</button>
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <button type="submit" id="quote">Pricing request</button>
+            <button type="submit" id="checkout" name="checkout">Checkout</button> <!-- Agregué el nombre "checkout" al botón -->
+        </form>
     </div>
 </div>
-
-<div class="oculto">
-            <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
-    </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

@@ -1,7 +1,18 @@
+<?php
+include 'conecta.php';
+include 'check_session.php';
+?>
+
+
+<div class="oculto">
+    <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
+</div>
+
+
 <div id="menu-cliente">
     <div class="cliente-label">
         <div class="lbl">
-            <h2 id="client-name">Welcome [Client Name]</h2>
+            <h2 id="client-name">NombreUsuario</h2>
         </div>
         <div class="lbl">
             <h3 id="client-ID">client_account</h3>
@@ -62,16 +73,18 @@
                             <h4>Name:</h4>
                         </td>
                         <td>
-                            <p>Name Last Name</p>
+                            <p id="nombre"></p>
                         </td>
                         <td><button id="btnChName">Change name</button></td>
+                    </tr>
+
                     </tr>
                     <tr>
                         <td>
                             <h4>Shipping address:</h4>
                         </td>
                         <td>
-                            <p>A Place 5618, State, USA</p>
+                            <p id="dire"></p>
                         </td>
                         <td><button id="btnChAddress">Change address</button></td>
                     </tr>
@@ -104,7 +117,7 @@
                             <h4>User email:</h4>
                         </td>
                         <td>
-                            <p>anemail@example.com</p>
+                            <p id="correo"></p>
                         </td>
                         <td><button id="btnChEmail">Change email</button></td>
                     </tr>
@@ -113,7 +126,7 @@
                             <h4>Password:</h4>
                         </td>
                         <td>
-                            <p>*********</p>
+                            <p id="contrasena"></p>
                         </td>
                         <td><button id="btnChPassword">Change Password</button></td>
                     </tr>
@@ -127,4 +140,50 @@
         </div>
     </div>
 
+    <div class="oculto">
+        <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
+        <span class="oculto" id="id_oculto"><?php echo $_SESSION['id']; ?></span>
+        <span class="oculto" id="direccion_oculto"><?php echo $_SESSION['address']; ?></span>
+        <span class="oculto" id="correo_oculto"><?php echo $_SESSION['email']; ?></span>
+        <span class="oculto" id="contrasena_oculto"><?php echo $_SESSION['password']; ?></span>
+    </div>
+
+
+
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        // Obtener el nombre de usuario de la sesión PHP
+        var nombreUsuario = $('#nombre_oculto').text().trim();
+
+        var IdUsuario = $('#id_oculto').text().trim();
+
+        var direccionUsuario = $('#direccion_oculto').text().trim();
+
+        var correoUsuario = $('#correo_oculto').text().trim();
+
+        
+        var contrasenaUsuario = $('#contrasena_oculto').text().trim();
+
+        // Actualizar el contenido del elemento h2 con el id "client-name" con el nombre de usuario obtenido
+        $('#client-name').text(nombreUsuario);
+        $('#client-ID').text("ID: " + IdUsuario);
+        $('#nombre').text(nombreUsuario);
+        $('#dire').text(direccionUsuario);
+        $('#correo').text(correoUsuario);
+        $('#contrasena').text(contrasenaUsuario);
+
+        // Agregar confirmación para eliminar cuenta
+        $('#btnDeleteAcc').click(function() {
+            // Mostrar un mensaje de confirmación
+            var confirmDelete = confirm("¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.");
+
+            // Si el usuario confirma la eliminación, redirige a la página de eliminación de cuenta
+            if (confirmDelete) {
+                window.location.href = "eliminar_cuenta.php"; // Reemplaza "eliminar_cuenta.php" con la URL adecuada
+            }
+        });
+    });
+</script>
