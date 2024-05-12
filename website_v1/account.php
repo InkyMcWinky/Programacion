@@ -3,11 +3,9 @@ include 'conecta.php';
 include 'check_session.php';
 ?>
 
-
 <div class="oculto">
     <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
 </div>
-
 
 <div id="menu-cliente">
     <div class="cliente-label">
@@ -26,7 +24,7 @@ include 'check_session.php';
             <div id="btnSettings" class="myitem">Settings</div>
         </nav>
         <div id="info-c">
-            <table id="orders" class="info-client escondido">
+            <table id="orders" class="info-client">
                 <tr>
                     <th>Order #</th>
                     <th>Series</th>
@@ -75,10 +73,9 @@ include 'check_session.php';
                         <td>
                             <p id="nombre"></p>
                         </td>
-                        <td><button id="btnChName">Change name</button></td>
+                        <td><button id="btnCh">Change Name </buttonName></td>
                     </tr>
 
-                    </tr>
                     <tr>
                         <td>
                             <h4>Shipping address:</h4>
@@ -110,7 +107,7 @@ include 'check_session.php';
                         <td>
                             <p>user_name</p>
                         </td>
-                        <td><button id="btnChUser">Change username</button></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>
@@ -148,13 +145,11 @@ include 'check_session.php';
         <span class="oculto" id="contrasena_oculto"><?php echo $_SESSION['password']; ?></span>
     </div>
 
-
-
 </div>
 
 
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         // Obtener el nombre de usuario de la sesión PHP
         var nombreUsuario = $('#nombre_oculto').text().trim();
 
@@ -164,7 +159,7 @@ include 'check_session.php';
 
         var correoUsuario = $('#correo_oculto').text().trim();
 
-        
+
         var contrasenaUsuario = $('#contrasena_oculto').text().trim();
 
         // Actualizar el contenido del elemento h2 con el id "client-name" con el nombre de usuario obtenido
@@ -186,4 +181,5 @@ include 'check_session.php';
             }
         });
     });
+
 </script>

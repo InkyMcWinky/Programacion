@@ -10,11 +10,11 @@
     </div>
 
     <div class="mySlides fade" style="display: block;">
-        <img src="images/Slider_3.gif" style="width: 100%">
+        <img src="images/Slider_3.mp4" style="width: 100%">
     </div>
 
     <div class="mySlides fade" style="display: block;">
-        <img src="images/Slider_4.gif" style="width: 100%">
+        <img src="images/Slider_4.mp4" style="width: 100%">
     </div>
 
     <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -30,10 +30,10 @@
 </div>
 
 
-<section id="searchBar">
+<!-- section id="searchBar">
     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search...">
     <div id="search"><img src="images/lupa.svg"></div>
-</section>
+</section-->
 
 <section class="container categories">
     <h2 class="text-center">Product Categories</h2>

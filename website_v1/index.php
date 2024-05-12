@@ -13,7 +13,7 @@ include 'check_session.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S. World Packaging Supplies</title>
-    <link rel="icon" type="image/x-icon" href="images/LOGO.svg">
+    <link rel="icon" type="image/x-icon" href="images/LOGO.png">
 
     <!-- fonts -->
     <link rel="preconnect" href="fonts/Dubai-Light.ttf">
@@ -45,7 +45,7 @@ include 'check_session.php';
             <div id="menu-container">
                 <div class="nav-container">
 
-                    <img id="logo" alt="Logo" src="images/LOGO%20USA.svg">
+                    <img id="logo" alt="Logo" src="images/LOGO.png">
                     <h2 id="wps">S. World Packaging Supplies</h2>
                     <h2 id="wps2">WPS</h2>
 
@@ -60,22 +60,22 @@ include 'check_session.php';
 
                         <!-- Carrito -->
                         <div id="shopBtn">
-                            <img id="cart" src="images/Cart.svg">
+                            <img id="cart" src="images/Cart.png">
                             <div id="stotal">
                                 $1,000.00
                             </div>
                         </div>
                         <!-- Boton Log in -->
-                        <div id="accountBtn" onclick="cargarLogin()">
-                            <img id="picon" src="images/Profile.svg" />
+                        <div id="accountBtn" class="accBtn" onclick="cargarLogin()">
+                            <img id="picon" src="images/Profile.png" />
                             <a href="#">
                                 <h4 id="logIn">Log in</h4>
                             </a>
                         </div>
 
                         <!-- Botón Log out -->
-                        <div id="logoutBtn" onclick="cerrarSesion()">
-                            <img id="picon" src="images/Profile.svg" />
+                        <div id="logoutBtn" class="accBtn escondido" onclick="cerrarSesion()">
+                            <img id="picon" src="images/Profile.png" />
                             <a href="#">
                                 <h4>Log out</h4>
                             </a>
@@ -102,8 +102,8 @@ include 'check_session.php';
                                         while ($fila = $resultado->fetch_assoc()) {
                                             $nombre_categoria = $fila["categoria"];
                                             ?>
-                                            <div class="sMenuBox"><a href="#"><?php echo $nombre_categoria; ?></a></div>
-                                            <?php
+                                    <div class="sMenuBox"><a href="#"><?php echo $nombre_categoria; ?></a></div>
+                                    <?php
                                         }
                                     } else {
                                         // Si no hay resultados, mostrar un mensaje de error o manejarlo de otra manera
@@ -137,7 +137,7 @@ include 'check_session.php';
 
             </div>
             <div id="cell">
-                <img id="cicon" src="images/Phone.svg">
+                <img id="cicon" src="images/Phone.png">
                 <a href="tel:+19154565465">
                     <h4>915 456 54 65</h4>
                 </a>
@@ -164,8 +164,7 @@ include 'check_session.php';
                 You.</p>
             <p>We use Your Personal data to provide and improve the Service. By using the Service, You agree to the
                 collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been
-                created with the help of the <a href="https://www.privacypolicies.com/privacy-policy-generator/"
-                    target="_blank">Privacy Policy Generator</a>.</p>
+                created with the help of the <a href="https://www.privacypolicies.com/privacy-policy-generator/" target="_blank">Privacy Policy Generator</a>.</p>
             <h1>Interpretation and Definitions</h1>
             <h2>Interpretation</h2>
             <p>The words of which the initial letter is capitalized have meanings defined under the following
@@ -220,9 +219,7 @@ include 'check_session.php';
                         visit).</p>
                 </li>
                 <li>
-                    <p><strong>Website</strong> refers to S. World Packaging Supplies, accessible from <a
-                            href="http://www.hworldpackaging.com" rel="external nofollow noopener"
-                            target="_blank">http://www.hworldpackaging.com</a></p>
+                    <p><strong>Website</strong> refers to S. World Packaging Supplies, accessible from <a href="http://www.hworldpackaging.com" rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
                 </li>
                 <li>
                     <p><strong>You</strong> means the individual accessing or using the Service, or the company, or
@@ -281,9 +278,7 @@ include 'check_session.php';
             </ul>
             <p>Cookies can be &quot;Persistent&quot; or &quot;Session&quot; Cookies. Persistent Cookies remain on Your
                 personal computer or mobile device when You go offline, while Session Cookies are deleted as soon as You
-                close Your web browser. Learn more about cookies on the <a
-                    href="https://www.privacypolicies.com/blog/privacy-policy-template/#Use_Of_Cookies_Log_Files_And_Tracking"
-                    target="_blank">Privacy Policies website</a> article.</p>
+                close Your web browser. Learn more about cookies on the <a href="https://www.privacypolicies.com/blog/privacy-policy-template/#Use_Of_Cookies_Log_Files_And_Tracking" target="_blank">Privacy Policies website</a> article.</p>
             <p>We use both Session and Persistent Cookies for the purposes set out below:</p>
             <ul>
                 <li>
@@ -460,8 +455,7 @@ include 'check_session.php';
                     <p>By email: customerservice@hworldpackaging.com</p>
                 </li>
                 <li>
-                    <p>By visiting this page on our website: <a href="http://www.hworldpackaging.com/"
-                            rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
+                    <p>By visiting this page on our website: <a href="http://www.hworldpackaging.com/" rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
                 </li>
                 <li>
                     <p>By phone number: 915 456 54 65</p>
@@ -478,8 +472,7 @@ include 'check_session.php';
             <p>Last updated: June 12, 2023</p>
             <p>Thank you for shopping at S. World Packaging Supplies.</p>
             <p>If, for any reason, You are not completely satisfied with a purchase We invite You to review our policy
-                on refunds and returns. This Return and Refund Policy has been created with the help of the <a
-                    href="https://www.privacypolicies.com/return-refund-policy-generator/" target="_blank">Return and
+                on refunds and returns. This Return and Refund Policy has been created with the help of the <a href="https://www.privacypolicies.com/return-refund-policy-generator/" target="_blank">Return and
                     Refund Policy Generator</a>.</p>
             <p>The following terms are applicable for any products that You purchased with Us.</p>
             <h1>Interpretation and Definitions</h1>
@@ -505,9 +498,7 @@ include 'check_session.php';
                     <p><strong>Service</strong> refers to the Website.</p>
                 </li>
                 <li>
-                    <p><strong>Website</strong> refers to S. World Packaging Supplies, accessible from <a
-                            href="http://www.hworldpackaging.com" rel="external nofollow noopener"
-                            target="_blank">http://www.hworldpackaging.com</a></p>
+                    <p><strong>Website</strong> refers to S. World Packaging Supplies, accessible from <a href="http://www.hworldpackaging.com" rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
                 </li>
                 <li>
                     <p><strong>You</strong> means the individual accessing or using the Service, or the company, or
@@ -526,8 +517,7 @@ include 'check_session.php';
                     <p>By email: customerservice@hworldpackaging.com</p>
                 </li>
                 <li>
-                    <p>By visiting this page on our website: <a href="http://www.hworldpackaging.com"
-                            rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
+                    <p>By visiting this page on our website: <a href="http://www.hworldpackaging.com" rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
                 </li>
                 <li>
                     <p>By phone number: ‪9154534566</p>
@@ -576,8 +566,7 @@ include 'check_session.php';
                     <p>By email: customerservice@hworldpackaging.com</p>
                 </li>
                 <li>
-                    <p>By visiting this page on our website: <a href="http://www.hworldpackaging.com"
-                            rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
+                    <p>By visiting this page on our website: <a href="http://www.hworldpackaging.com" rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
                 </li>
                 <li>
                     <p>By phone number: ‪9154534566</p>
@@ -625,8 +614,7 @@ include 'check_session.php';
                 <li>
                     <p><strong>Terms and Conditions</strong> (also referred as &quot;Terms&quot;) mean these Terms and
                         Conditions that form the entire agreement between You and the Company regarding the use of the
-                        Service. This Terms and Conditions agreement has been created with the help of the <a
-                            href="https://www.privacypolicies.com/terms-conditions-generator/" target="_blank">Terms and
+                        Service. This Terms and Conditions agreement has been created with the help of the <a href="https://www.privacypolicies.com/terms-conditions-generator/" target="_blank">Terms and
                             Conditions Generator</a>.</p>
                 </li>
                 <li>
@@ -635,9 +623,7 @@ include 'check_session.php';
                         made available by the Service.</p>
                 </li>
                 <li>
-                    <p><strong>Website</strong> refers to S. World Packaging Supplies , accessible from <a
-                            href="http://www.hworldpackaging.com" rel="external nofollow noopener"
-                            target="_blank">http://www.hworldpackaging.com</a></p>
+                    <p><strong>Website</strong> refers to S. World Packaging Supplies , accessible from <a href="http://www.hworldpackaging.com" rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
                 </li>
                 <li>
                     <p><strong>You</strong> means the individual accessing or using the Service, or the company, or
@@ -755,8 +741,7 @@ include 'check_session.php';
                     <p>By email: customerservice@hworldpackaging.com</p>
                 </li>
                 <li>
-                    <p>By visiting this page on our website: <a href="http://www.hworldpackaging.com"
-                            rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
+                    <p>By visiting this page on our website: <a href="http://www.hworldpackaging.com" rel="external nofollow noopener" target="_blank">http://www.hworldpackaging.com</a></p>
                 </li>
                 <li>
                     <p>By phone number: 9154534566</p>
@@ -828,6 +813,10 @@ include 'check_session.php';
 
     </div>
 
+    <?php
+    include 'ventanas.php'
+        ?>
+
 
 
 
@@ -881,10 +870,10 @@ include 'check_session.php';
         <p id="copy">S. World Packaging Supplies © All Rights Reserved</p>
     </div>
 
-    <div class="oculto">
-            <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
+    <div class="escondido">
+        <span class="escondido" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
     </div>
-    
+
 </body>
 
 

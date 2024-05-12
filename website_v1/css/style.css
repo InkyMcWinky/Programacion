@@ -222,7 +222,7 @@ a {
 }
 
 /* ---------- Carrusel ---------- */
-.slideshow-container {
+.slidhow-container {
     height: auto;
     max-width: 150rem;
     margin: 0 auto;
@@ -464,13 +464,13 @@ a {
 }
 
 #client-name {
-    font-size: 3vw;
+    font-size: 3.5rem;
     margin: 0;
 }
 
 #client-ID {
     text-align: right;
-    font-size: 2.5vw;
+    font-size: 3rem;
     margin: 0;
     float: right;
 }
@@ -610,8 +610,64 @@ table {
     font-size: 2rem;
 }
 
+/*----- Ventanas de configuración -----*/
+#window-sh {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 33, 59, 0.4);
+    top: 80px;
+    display: none;*/
+    position: fixed;
+    z-index: 0;
+}
+.window {
+    position:absolute;
+    padding: 2rem;
+    width: 50%;
+    height: auto;
+    background-color: #EFF3FA;
+    margin: 7.7rem auto;
+    overflow: auto;
+    position: static;
+    /*display: none;*/
+    font-size: 2.5rem;
+    padding: 3%;
+    border-radius: 1vw;
+}
+.window h1{
+    font-size: 3rem;
+}
+.window input {
+    width: 75%;
+    margin-left: 2rem;
+    background-color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
 
-
+.cancel, .update {
+    float: right;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 25vh;
+}
+.cancel {
+    background-color: #2F4875;
+    color: #fff;
+    cursor: pointer;
+}
+.update {
+    margin-left: 2rem;
+    background-color: #FB8500;
+    color: #000;
+    cursor: pointer;
+}
+.update:hover {
+    background-color: #5681C8
+}
 /* ----------- checkout ---------- */
 .shop-cart-big {
     width: 100%;
@@ -865,7 +921,6 @@ table {
     width: 100%;
     height: 80rem;
 }
-
 .sig {
     width: 100%;
     height: 125rem;
@@ -963,7 +1018,6 @@ span a:active {
     font-size: 1.8rem;
     margin-top: 5rem;
 }
-}
 
 /* ----------- Policies ----------- */
 .policy {
@@ -994,14 +1048,14 @@ span a:active {
     position: relative;
     float: right;
     cursor: pointer;
-    background-image: url(/images/delete.svg);
+    background-image: url(../images/delete.png)
     background-repeat: no-repeat;
 }
 
 .policy-logo {
     width: 15vw;
     height: 15vw;
-    background-image: url(/images/LOGO%20USA.svg);
+    background-image: url(../images/LOGO.png);
     background-repeat: no-repeat;
     margin: 2vw auto;
 }
