@@ -1,6 +1,5 @@
 <?php
 include 'conecta.php';
-$conexion = new mysqli('localhost', 'root', '', 'proyecto_wps');
 include 'check_session.php';
 
 // Verificar si se ha enviado el formulario de agregar al carrito
@@ -9,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_to_cart"])) {
     $nombre = $_POST["nombre"];
     $descripcion = $_POST["descripcion"];
     $precio = $_POST["precio"];
+    $id = $_POST["id"];
 
     // Verificar si el producto ya está en el carrito
     $producto_encontrado = false;
@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["add_to_cart"])) {
     if (!$producto_encontrado) {
         $producto = array(
             "nombre" => $nombre,
+            "id" => $id,
             "descripcion" => $descripcion,
             "precio" => $precio,
             "cantidad" => 1, // Definir la cantidad inicial como 1
@@ -45,14 +46,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["checkout"])) {
         $usuarioID = $_SESSION['id']; // Suponiendo que el ID del usuario se almacena en $_SESSION['id']
 
         // Preparar la consulta SQL para insertar los productos en la tabla de compras
-        $query = "INSERT INTO compras (UsuarioID, ProductoID, Cantidad, PrecioUnitario, FechaCompra, EstadoCompra) VALUES (?, ?, ?, ?, NOW(), 'Pendiente')";
+        $query = "INSERT INTO compras (UsuarioID, ProductoID, Cantidad, PrecioUnitario, PrecioTotal, FechaCompra, EstadoCompra) VALUES (?, ?, ?, ?, ?, NOW(), 'Pendiente')";
 
         // Preparar la sentencia
         $statement = $conexion->prepare($query);
 
         foreach ($_SESSION["carrito"] as $producto) {
+            // Calcular el precio total del producto
+            $precioTotal = $producto["cantidad"] * $producto["precio"];
+
             // Ejecutar la sentencia para cada producto en el carrito
-            $statement->bind_param("iiid", $usuarioID, $producto["id"], $producto["cantidad"], $producto["precio"]);
+            $statement->bind_param("iiidd", $usuarioID, $producto["id"], $producto["cantidad"], $producto["precio"], $precioTotal);
             $statement->execute();
         }
 
@@ -62,6 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["checkout"])) {
         header("Location: index.php");
     }
 }
+
 ?>
 
 <div class="col-25">
@@ -72,8 +77,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["checkout"])) {
             <div id="p-label" class="secc">
                 <h3>Product</h3>
             </div>
-            <div id="s-label" class="secc">
-                <h3>Size</h3>
+            <div id="q-label" class="secc">
+                <h3>ID</h3>
             </div>
             <div id="q-label" class="secc">
                 <h3>Quantity</h3>
@@ -99,9 +104,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["checkout"])) {
                 ?>
                 <div class="item" data-key="<?php echo $key; ?>">
                     <span class="prod-desc"><?php echo $producto["nombre"]; ?></span>
+                    <span class="prod-id"><?php echo $producto["id"]; ?></span>
                     <span class="prod-qty"><?php echo $producto["cantidad"]; ?></span> <!-- Mostrar la cantidad del producto -->
                     <span class="prod-price price-<?php echo $key; ?>">$<?php echo $producto["precio"]; ?></span>
-                    <span class="prod-total"><?php echo $precio_total_producto; ?></span> <!-- Mostrar el precio total del producto -->
+                    <span class="prod-total">$<?php echo $precio_total_producto; ?></span> <!-- Mostrar el precio total del producto -->
                     <span class="delete-btn">X</span> <!-- Icono de eliminar el producto del carrito -->
                 </div>
                 <?php
@@ -125,28 +131,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["checkout"])) {
 </div>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-$(document).ready(function() {
-    // Manejar clic en el botón de eliminar producto del carrito
-    $('.delete-btn').click(function() {
-        var key = $(this).closest('.item').data('key'); // Obtener el índice del producto en el carrito
-        // Realizar la solicitud AJAX para eliminar el producto del carrito
-        $.ajax({
-            type: 'POST',
-            url: 'remove_from_cart.php',
-            data: {
-                key: key
-            },
-            success: function(response) {
-                // Remover el elemento correspondiente de la lista del carrito
-                $('.item[data-key="' + key + '"]').remove();
-                // Actualizar el total con la respuesta del servidor (nuevo total)
-                $('.sub-total').text('Total: $' + response);
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
-        });
-    });
-});
-</script>
+<script src="javascript/scripts_cart.js"></script>

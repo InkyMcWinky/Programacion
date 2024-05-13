@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST['pwd'];
 
         // Consulta SQL preparada para buscar el usuario en la base de datos y obtener su nombre y ID
-        $consulta = $conexion->prepare("SELECT id, nombre FROM usuarios WHERE correo=? AND contraseña=?");
+        $consulta = $conexion->prepare("SELECT id, nombre, direccion, numero FROM usuarios WHERE correo=? AND contraseña=?");
         $consulta->bind_param("ss", $email, $password);
         $consulta->execute();
         $resultado = $consulta->get_result();
@@ -23,12 +23,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $fila = $resultado->fetch_assoc();
             $nombreUsuario = $fila['nombre'];
             $idUsuario = $fila['id'];
+            $direccionUsuario = $fila['direccion'];
+            $numeroUsuario = $fila['numero'];
 
             // Establecer variables de sesión
             $_SESSION['loggedin'] = true;
             $_SESSION['email'] = $email;
             $_SESSION['nombre'] = $nombreUsuario;
             $_SESSION['id'] = $idUsuario;
+            $_SESSION['direccion'] = $direccionUsuario;
+            $_SESSION['numero'] = $numeroUsuario;
 
             // Devolver un mensaje JSON indicando el éxito del inicio de sesión
             echo json_encode(array("success" => true, "message" => "Inicio de sesión exitoso"));

@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
     // Cuando se hace clic en una categoría
-    console.log("FSFS")
     console.log(document.querySelector(".category"))
     $(".category").click(function () {
         // Obtener el texto de la categoría seleccionada

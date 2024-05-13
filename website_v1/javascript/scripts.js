@@ -38,26 +38,26 @@ $("#btnContact").click(function () {
 
 function cargarLogin() {
     // Realizar una solicitud al servidor para cargar el formulario de inicio de sesión
-    $('#contenedor').load('login.php');
-}
-
-
-
-
-function cerrarSesion() {
+    // Verificar si la sesión está iniciada
     $.ajax({
+        url: 'check_session.php', // Ruta al script que verifica la sesión
         type: 'GET',
-        url: 'logout.php', // El archivo PHP que maneja el cierre de sesión
+        dataType: 'json',
         success: function(response) {
-            // Si el cierre de sesión fue exitoso, recargar la página para aplicar los cambios
-            location.reload();
+            // Si la sesión está iniciada, cargar la página de la cuenta
+            if (response.loggedIn === true) {
+                $("#contenedor").load("account.php");
+            } else {
+                // Si la sesión no está iniciada, cargar la página de inicio de sesión
+                $("#contenedor").load("login.php");
+            }
         },
         error: function(xhr, status, error) {
-            // Manejar cualquier error que ocurra durante el cierre de sesión
             console.error(error);
         }
     });
 }
+
 
 
 
@@ -83,9 +83,29 @@ $("#btnCarrito").click(function () {
     $("#contenedor").load("cart.php");
 });
 
+
+
 $("#btnCuenta").click(function () {
-    $("#contenedor").load("login.php");
+    // Verificar si la sesión está iniciada
+    $.ajax({
+        url: 'check_session.php', // Ruta al script que verifica la sesión
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            // Si la sesión está iniciada, cargar la página de la cuenta
+            if (response.loggedIn === true) {
+                $("#contenedor").load("account.php");
+            } else {
+                // Si la sesión no está iniciada, cargar la página de inicio de sesión
+                $("#contenedor").load("login.php");
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
 });
+
 
 
 // ----- Menu Lateral -----

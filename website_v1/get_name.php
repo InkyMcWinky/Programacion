@@ -5,10 +5,13 @@ require_once "conecta.php";
 // Iniciar o reanudar la sesión
 session_start();
 
-// Verificar si hay una sesión iniciada
+// Verificar si hay una sesión iniciada y si el correo electrónico está definido en la sesión
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_SESSION['email'])) {
     // El correo electrónico del usuario almacenado en la sesión
+
+
     $email = $_SESSION['email'];
+
 
     // Ejemplo de consulta (debes adaptarla a tu base de datos)
     $consulta = $conexion->prepare("SELECT id, nombre, direccion, correo, contraseña FROM usuarios WHERE correo = ?");
@@ -19,11 +22,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_SE
     // Si la consulta es exitosa y obtiene los datos del usuario
     if ($resultado->num_rows > 0) {
         $fila = $resultado->fetch_assoc();
+        var_dump($fila);
         $idUsuario = $fila['id'];
         $nombreUsuario = $fila['nombre'];
         $direccionUsuario = $fila['direccion']; // Suponiendo que la columna se llama 'direccion'
         $correoUsuario = $fila['correo']; // Nuevo
         $contrasenaUsuario = $fila['contraseña']; // Nueva
+
 
         // Obtener la longitud real de la contraseña del usuario
         $longitudContrasena = strlen($contrasenaUsuario);
@@ -37,10 +42,9 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_SE
         // Si no se encuentra el usuario en la base de datos, devuelve un mensaje de error
         echo json_encode(array("error" => "No se pudo encontrar el usuario"));
     }
-
 } else {
     // Si no hay una sesión iniciada o el correo electrónico no está definido en la sesión, devuelve un mensaje de error
     echo json_encode(array("error" => "No se pudo obtener los datos del usuario"));
 }
-
 ?>
+

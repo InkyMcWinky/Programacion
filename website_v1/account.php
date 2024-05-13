@@ -1,6 +1,45 @@
 <?php
 include 'conecta.php';
 include 'check_session.php';
+
+// Obtener el UsuarioID de la sesión
+if (isset($_SESSION['id'])) {
+    $usuarioID = $_SESSION['id'];
+
+    // Consulta SQL para obtener las órdenes del usuario actual
+    $query = "SELECT * FROM compras WHERE UsuarioID = ?";
+    $statement = $conexion->prepare($query);
+    $statement->bind_param("i", $usuarioID);
+    $statement->execute();
+    $result = $statement->get_result();
+
+    // Inicializar una variable para almacenar las filas de la tabla HTML
+    $orders_html = "";
+
+    // Verificar si hay órdenes para mostrar
+    if ($result->num_rows > 0) {
+        // Mostrar las órdenes en la tabla HTML
+        while ($row = $result->fetch_assoc()) {
+            $orders_html .= "<tr>";
+            $orders_html .= "<td>" . $row['ID'] . "</td>";
+            $orders_html .= "<td>" . $row['ProductoID'] . "</td>";
+            $orders_html .= "<td>" . $row['Cantidad'] . "</td>";
+            $orders_html .= "<td>" . $row['PrecioUnitario'] . "</td>";
+            $orders_html .= "<td>" . $row['FechaCompra'] . "</td>";
+            $orders_html .= "<td>" . $row['precioTotal'] . "</td>";
+            $orders_html .= "<td>" . $row['EstadoCompra'] . "</td>";
+            $orders_html .= "</tr>";
+        }
+    } else {
+        // Si no hay órdenes, mostrar un mensaje en una fila de la tabla
+        $orders_html = '<div class="none escondido">
+        <div class="logo-fondo"></div>
+        <h3>You don\'t have any <span>orders</span> at the moment...</h3>
+        </div>';
+    }
+
+
+}
 ?>
 
 <div class="oculto">
@@ -27,41 +66,16 @@ include 'check_session.php';
             <table id="orders" class="info-client">
                 <tr>
                     <th>Order #</th>
-                    <th>Series</th>
-                    <th>Number</th>
+                    <th>Product ID</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
                     <th>Date</th>
-                    <th>Currency</th>
-                    <th>Total</th>
-                    <th>Departures</th>
+                    <th>Total Price</th>
                     <th>Status</th>
                 </tr>
-                <tr>
-                    <td>145245</td>
-                    <td>OCC</td>
-                    <td>285</td>
-                    <td>04/17/2023</td>
-                    <td>USD</td>
-                    <td>$1, 204.25</td>
-                    <td>2</td>
-                    <td>Pending</td>
-                </tr>
-                <tr>
-                    <td>145245</td>
-                    <td>OCC</td>
-                    <td>285</td>
-                    <td>04/17/2023</td>
-                    <td>USD</td>
-                    <td>$1, 204.25</td>
-                    <td>2</td>
-                    <td>Pending</td>
-                </tr>
-
+                <?php echo $orders_html; ?>
             </table>
 
-            <div class="none escondido">
-                <div class="logo-fondo"></div>
-                <h3>You don't have any <span>orders</span> at the moment...</h3>
-            </div>
 
             <div id="set" class="settings">
                 <h3>User information</h3>
@@ -73,7 +87,8 @@ include 'check_session.php';
                         <td>
                             <p id="nombre"></p>
                         </td>
-                        <td><button id="btnCh">Change Name </buttonName></td>
+                        <td><button id="btnCh">Change Name </buttonName>
+                        </td>
                     </tr>
 
                     <tr>
@@ -81,34 +96,27 @@ include 'check_session.php';
                             <h4>Shipping address:</h4>
                         </td>
                         <td>
-                            <p id="dire"></p>
+                            <p id="direccion"></p>
                         </td>
                         <td><button id="btnChAddress">Change address</button></td>
                     </tr>
+
                     <tr>
                         <td>
                             <h4>Phone number:</h4>
                         </td>
                         <td>
-                            <p>+52 6484 15641</p>
+                            <p id="numero"></p>
                         </td>
                         <td><button id="btnChPhNum">Change phone number</button></td>
                     </tr>
+
                 </table>
 
                 <br>
 
                 <h3>Account Settings</h3>
                 <table>
-                    <tr>
-                        <td>
-                            <h4>User name:</h4>
-                        </td>
-                        <td>
-                            <p>user_name</p>
-                        </td>
-                        <td></td>
-                    </tr>
                     <tr>
                         <td>
                             <h4>User email:</h4>
@@ -118,6 +126,8 @@ include 'check_session.php';
                         </td>
                         <td><button id="btnChEmail">Change email</button></td>
                     </tr>
+
+
                     <tr>
                         <td>
                             <h4>Password:</h4>
@@ -128,8 +138,16 @@ include 'check_session.php';
                         <td><button id="btnChPassword">Change Password</button></td>
                     </tr>
 
+
                 </table>
                 <br><br><br>
+
+                <div id="logoutBtn" class="accBtn" onclick="cerrarSesion()">
+                    <img id="picon" src="images/Profile.png" />
+                    <a href="#">
+                        <h4>Log out</h4>
+                    </a>
+                </div>
 
                 <button id="btnDeleteAcc">Delete account</button>
 
@@ -140,46 +158,13 @@ include 'check_session.php';
     <div class="oculto">
         <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
         <span class="oculto" id="id_oculto"><?php echo $_SESSION['id']; ?></span>
-        <span class="oculto" id="direccion_oculto"><?php echo $_SESSION['address']; ?></span>
+        <span class="oculto" id="direccion_oculto"><?php echo $_SESSION['direccion']; ?></span>
         <span class="oculto" id="correo_oculto"><?php echo $_SESSION['email']; ?></span>
-        <span class="oculto" id="contrasena_oculto"><?php echo $_SESSION['password']; ?></span>
+        <span class="oculto" id="contrasena_oculto"><?php echo $_SESSION['contraseña']; ?></span>
+        <span class="oculto" id="numero_oculto"><?php echo $_SESSION['numero']; ?></span>
     </div>
 
 </div>
 
 
-<script>
-    $(document).ready(function() {
-        // Obtener el nombre de usuario de la sesión PHP
-        var nombreUsuario = $('#nombre_oculto').text().trim();
-
-        var IdUsuario = $('#id_oculto').text().trim();
-
-        var direccionUsuario = $('#direccion_oculto').text().trim();
-
-        var correoUsuario = $('#correo_oculto').text().trim();
-
-
-        var contrasenaUsuario = $('#contrasena_oculto').text().trim();
-
-        // Actualizar el contenido del elemento h2 con el id "client-name" con el nombre de usuario obtenido
-        $('#client-name').text(nombreUsuario);
-        $('#client-ID').text("ID: " + IdUsuario);
-        $('#nombre').text(nombreUsuario);
-        $('#dire').text(direccionUsuario);
-        $('#correo').text(correoUsuario);
-        $('#contrasena').text(contrasenaUsuario);
-
-        // Agregar confirmación para eliminar cuenta
-        $('#btnDeleteAcc').click(function() {
-            // Mostrar un mensaje de confirmación
-            var confirmDelete = confirm("¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.");
-
-            // Si el usuario confirma la eliminación, redirige a la página de eliminación de cuenta
-            if (confirmDelete) {
-                window.location.href = "eliminar_cuenta.php"; // Reemplaza "eliminar_cuenta.php" con la URL adecuada
-            }
-        });
-    });
-
-</script>
+<script src="javascript/scripts_account.js"></script>

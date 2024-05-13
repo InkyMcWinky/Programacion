@@ -3,12 +3,13 @@ include 'conecta.php';
 $conexion = new mysqli('localhost', 'root', '', 'proyecto_wps');
 
 // Procesar registro
-if (isset($_POST['name']) && isset($_POST['apellido']) && isset($_POST['adress']) && isset($_POST['email']) && isset($_POST['pswd']) && isset($_POST['confirm_pswd'])) {
+if (isset($_POST['name']) && isset($_POST['apellido']) && isset($_POST['adress']) && isset($_POST['email']) && isset($_POST['pswd']) && isset($_POST['confirm_pswd']) && isset($_POST['phone'])) {
     // Incluir el archivo de conexión a la base de datos
     require_once "conecta.php";
 
     $nombre = $_POST['name'] . ' ' . $_POST['apellido'];
     $direccion = $_POST['adress'];
+    $telefono = $_POST['phone'];
     $email = $_POST['email'];
     $password = $_POST['pswd'];
     $confirm_password = $_POST['confirm_pswd'];
@@ -27,7 +28,7 @@ if (isset($_POST['name']) && isset($_POST['apellido']) && isset($_POST['adress']
             $error_registro = "El correo electrónico ya está en uso.";
         } else {
             // Consulta SQL para insertar el nuevo usuario en la base de datos
-            $consulta_registro = "INSERT INTO usuarios (nombre, direccion, correo, contraseña) VALUES ('$nombre', '$direccion', '$email', '$password')";
+            $consulta_registro = "INSERT INTO usuarios (nombre, direccion, correo, contraseña, Numero) VALUES ('$nombre', '$direccion', '$email', '$password', '$telefono')";
             if ($conexion->query($consulta_registro) === TRUE) {
                 // Usuario registrado exitosamente, cargar el formulario de inicio de sesión en el contenedor actual
                 echo '<script>$("#contenedor").load("login.php", function() { alert("Registro correcto"); });</script>';
@@ -48,7 +49,7 @@ if (isset($_POST['name']) && isset($_POST['apellido']) && isset($_POST['adress']
         <input type="text" id="name" name="name" placeholder="Nombre" required>
         <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
         <input type="text" id="adress" name="adress" placeholder="Address" required>
-        <input type="number" id="Phone" name="phone nomber" placeholder="Phone number" required>
+        <input type="number" id="phone" name="phone" placeholder="Phone number" required>
         <input type="email" id="mail" name="email" placeholder="Email" required>
         <input type="password" class="psw" name="pswd" placeholder="Password" required>
         <input type="password" class="psw" name="confirm_pswd" placeholder="Confirm password" required>
@@ -59,21 +60,5 @@ if (isset($_POST['name']) && isset($_POST['apellido']) && isset($_POST['adress']
     </form>
 </div>
 
-<script>
-function submitForm() {
-    var formData = $('#sig').serialize();
-    $.ajax({
-        type: 'POST',
-        url: '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>',
-        data: formData,
-        dataType: 'html',
-        success: function(response) {
-            $('#contenedor').html(response);
-        },
-        error: function(xhr, status, error) {
-            console.error(error);
-        }
-    });
-}
-</script>
+<script src="javascript/scripts_signin.js"></script>
 

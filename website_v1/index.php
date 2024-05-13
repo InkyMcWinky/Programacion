@@ -73,13 +73,6 @@ include 'check_session.php';
                             </a>
                         </div>
 
-                        <!-- Botón Log out -->
-                        <div id="logoutBtn" class="accBtn escondido" onclick="cerrarSesion()">
-                            <img id="picon" src="images/Profile.png" />
-                            <a href="#">
-                                <h4>Log out</h4>
-                            </a>
-                        </div>
 
                         <!-- Barra de separacion -->
                         <div id="bar"></div>
@@ -812,15 +805,6 @@ include 'check_session.php';
         </section>
 
     </div>
-
-    <?php
-    include 'ventanas.php'
-        ?>
-
-
-
-
-
 
     <footer>
         <div class="grid-footer">
