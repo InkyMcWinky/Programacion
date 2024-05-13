@@ -170,9 +170,6 @@ html {
 }
 
 /*----- No mostrar -----*/
-.escondido {
-    display: none;
-}
 
 /*----- Telefono -----*/
 #cell {
@@ -616,7 +613,7 @@ table {
     height: 100%;
     background-color: rgba(18, 33, 59, 0.4);
     top: 80px;
-    display: none;*/
+    display: none;
     position: fixed;
     z-index: 0;
 }
@@ -1048,7 +1045,7 @@ span a:active {
     position: relative;
     float: right;
     cursor: pointer;
-    background-image: url(../images/delete.png)
+    background-image: url(../images/delete.png);
     background-repeat: no-repeat;
 }
 
