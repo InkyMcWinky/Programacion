@@ -1,7 +1,7 @@
 <?php
 
 include 'conecta.php';
-include 'check_session.php';
+//include 'check_session.php';
 
 ?>
 
@@ -830,7 +830,7 @@ include 'check_session.php';
                     <h3>Account</h3>
                 </a>
                 <a id="btnCreate" class="footItem" href="#">Create an Account</a>
-                <a id="btnOrders" class="footItem" href="#">Orders and Returns</a>
+                <a id="btnOrders" class="footItem" href="#">Orders and Settings</a>
                 <a id="btnCart" class="footItem" href="#">Cart</a>
             </nav>
 
@@ -854,8 +854,8 @@ include 'check_session.php';
         <p id="copy">S. World Packaging Supplies © All Rights Reserved</p>
     </div>
 
-    <div class="escondido">
-        <span class="escondido" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
+    <div class="oculto">
+        <span class="oculto" id="nombre_oculto"><?php echo $_SESSION['nombre']; ?></span>
     </div>
 
 </body>

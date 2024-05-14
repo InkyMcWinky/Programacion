@@ -54,7 +54,7 @@ if (isset($_POST['name']) && isset($_POST['apellido']) && isset($_POST['adress']
         <input type="password" class="psw" name="pswd" placeholder="Password" required>
         <input type="password" class="psw" name="confirm_pswd" placeholder="Confirm password" required>
         <button id="botonSignin" type="button" onclick="submitForm()">Sign in</button>
-        <span>¿Ya tienes una cuenta? <a id="btnSignin" href="#">Inicia Sesión</a></span>
+        <span>Already have an account? <a id="btnLogin" href="#">Log In</a></span>
 
         <?php if (isset($error_registro)) {
             echo "<p class='error'>$error_registro</p>";

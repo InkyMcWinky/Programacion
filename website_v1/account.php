@@ -73,7 +73,9 @@ if (isset($_SESSION['id'])) {
                     <th>Total Price</th>
                     <th>Status</th>
                 </tr>
-                <?php echo $orders_html; ?>
+                <?php 
+                echo $orders_html; 
+                ?>
             </table>
 
 
@@ -87,7 +89,7 @@ if (isset($_SESSION['id'])) {
                         <td>
                             <p id="nombre"></p>
                         </td>
-                        <td><button id="btnCh">Change Name </buttonName>
+                        <td><button id="btnCh">Change Name </button>
                         </td>
                     </tr>
 
@@ -140,16 +142,16 @@ if (isset($_SESSION['id'])) {
 
 
                 </table>
-                <br><br><br>
+                <br><br>
 
                 <div id="logoutBtn" class="accBtn" onclick="cerrarSesion()">
-                    <img id="picon" src="images/Profile.png" />
                     <a href="#">
                         <h4>Log out</h4>
                     </a>
                 </div>
 
                 <button id="btnDeleteAcc">Delete account</button>
+                
 
             </div>
         </div>

@@ -10,11 +10,11 @@
     </div>
 
     <div class="mySlides fade" style="display: block;">
-        <img src="images/Slider_3.mp4" style="width: 100%">
+        <img src="images/Slider_3.gif" style="width: 100%">
     </div>
 
     <div class="mySlides fade" style="display: block;">
-        <img src="images/Slider_4.mp4" style="width: 100%">
+        <img src="images/Slider_4.gif" style="width: 100%">
     </div>
 
     <a class="prev" onclick="plusSlides(-1)">❮</a>

@@ -5,7 +5,7 @@
         <input type="email" id="user" name="email" placeholder="Email" required>
         <input type="password" class="psw" name="pwd" placeholder="Password" required>
         <input type="submit" value="Log in" name="login">
-        <span>¿Aún no tienes una cuenta? <a id="btnSignin" href="#">Registrate</a></span>
+        <span>You don't have an account? <a id="btnSignin" href="#">Sign In</a></span>
 
         <!-- Mensaje de error (si es necesario) -->
         <p id="error_message" class="error" style="display: none;"></p>
