@@ -55,10 +55,27 @@ if (isset($_POST['name']) && isset($_POST['apellido']) && isset($_POST['adress']
         <input type="password" class="psw" name="confirm_pswd" placeholder="Confirm password" required>
         <button id="botonSignin" type="button" onclick="submitForm()">Sign in</button>
         <span>¿Ya tienes una cuenta? <a id="btnSignin" href="#">Inicia Sesión</a></span>
-        
-        <?php if (isset($error_registro)) { echo "<p class='error'>$error_registro</p>"; } ?>
+
+        <?php if (isset($error_registro)) {
+            echo "<p class='error'>$error_registro</p>";
+        } ?>
     </form>
 </div>
 
-<script src="javascript/scripts_signin.js"></script>
-
+<script>
+    function submitForm() {
+        var formData = $('#sig').serialize();
+        $.ajax({
+            type: 'POST',
+            url: '<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>',
+            data: formData,
+            dataType: 'html',
+            success: function (response) {
+                $('#contenedor').html(response);
+            },
+            error: function (xhr, status, error) {
+                console.error(error);
+            }
+        });
+    }
+</script>
