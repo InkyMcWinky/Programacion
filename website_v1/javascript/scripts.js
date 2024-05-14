@@ -160,7 +160,7 @@ $("#btnAccount").click(function () {
 });
 
 $("#btnCreate").click(function () {
-    $("#contenedor").load("login.php");
+    $("#contenedor").load("signin.php");
 });
 
 $("#btnOrders").click(function () {
@@ -217,5 +217,4 @@ function hidePolicy() {
 
     document.getElementById("policy-shadow").style.display = "none";
 }
-
 

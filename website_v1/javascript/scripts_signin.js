@@ -13,3 +13,7 @@ function submitForm() {
         }
     });
 }
+
+$('#btnLogin').click(function () {
+    $('#contenedor').load('login.php');
+});
