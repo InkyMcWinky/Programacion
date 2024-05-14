@@ -164,7 +164,23 @@ $("#btnCreate").click(function () {
 });
 
 $("#btnOrders").click(function () {
-    $("#contenedor").load("account.php", "#orders");
+    $.ajax({
+        url: 'check_session.php', // Ruta al script que verifica la sesión
+        type: 'GET',
+        dataType: 'json',
+        success: function(response) {
+            // Si la sesión está iniciada, cargar la página de la cuenta
+            if (response.loggedIn === true) {
+                $("#contenedor").load("account.php");
+            } else {
+                // Si la sesión no está iniciada, cargar la página de inicio de sesión
+                $("#contenedor").load("login.php");
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
 });
 
 $("#btnCart").click(function () {
