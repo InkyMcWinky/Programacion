@@ -145,6 +145,11 @@ html {
 
 
 .accBtn {
+    display: block;
+    height: 30px;
+    margin: 20px 10px;
+    padding: 5px 10px;
+    font-family: 'Dubai Medium';
     width: auto;
     float: right;
     background-color: #FFB703;
@@ -234,7 +239,7 @@ a {
 .next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 50rem;
     width: auto;
     margin-top: -22px;
     padding: 16px;
@@ -246,7 +251,7 @@ a {
 }
 
 .next {
-    right: 0;
+    right: 7.7rem;
 }
 
 .prev:hover,
@@ -539,15 +544,22 @@ a {
     font-size: 1.8rem;
 }
 
+#logoutBtn {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
 /*-------  BOTON BORRAR CUENTA  -------*/
 #btnDeleteAcc {
-    float: right;
+    float: left;
     background-color: rgba(47, 72, 117, 0.3);
 }
 
 #info-c {
     background-color: #fff;
     width: 100%;
+    padding-bottom: 5rem;
 }
 
 .info-client {
@@ -617,8 +629,9 @@ table {
     position: fixed;
     z-index: 0;
 }
+
 .window {
-    position:absolute;
+    position: absolute;
     padding: 2rem;
     width: 50%;
     height: auto;
@@ -631,9 +644,11 @@ table {
     padding: 3%;
     border-radius: 1vw;
 }
-.window h1{
+
+.window h1 {
     font-size: 3rem;
 }
+
 .window input {
     width: 75%;
     margin-left: 2rem;
@@ -644,27 +659,32 @@ table {
     border-radius: 5px;
 }
 
-.cancel, .update {
+.cancel,
+.update {
     float: right;
     border: none;
     font-size: 2rem;
     padding: 1rem 2rem;
     border-radius: 25vh;
 }
+
 .cancel {
     background-color: #2F4875;
     color: #fff;
     cursor: pointer;
 }
+
 .update {
     margin-left: 2rem;
     background-color: #FB8500;
     color: #000;
     cursor: pointer;
 }
+
 .update:hover {
     background-color: #5681C8
 }
+
 /* ----------- checkout ---------- */
 .shop-cart-big {
     width: 100%;
@@ -809,7 +829,7 @@ table {
 }
 
 .info-box img {
-    height: 60rem;
+    height: 100%;
     width: 100%;
     object-fit: cover;
 }
@@ -918,6 +938,7 @@ table {
     width: 100%;
     height: 80rem;
 }
+
 .sig {
     width: 100%;
     height: 125rem;
@@ -1040,13 +1061,14 @@ span a:active {
 }
 
 .close {
-    width: 2.5vw;
-    height: 2.5vw;
+    width: 3rem;
+    height: 3rem;
     position: relative;
     float: right;
     cursor: pointer;
     background-image: url(../images/delete.png);
     background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .policy-logo {
@@ -1282,8 +1304,6 @@ footer {
         color: #EFF3FA;
         background-color: #2F4875;
         padding: 16rem 6rem;
-        background-color: #2F4875;
-        color: #EFF3FA;
     }
 
     .text-box h3 {
@@ -1718,7 +1738,7 @@ footer {
     }
 
     .text-box {
-        padding: 12rem 4rem;
+        padding: 8rem 4rem;
     }
 
     .text-box h3 {
