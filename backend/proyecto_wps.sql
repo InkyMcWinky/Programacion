@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-04-2024 a las 01:20:54
+-- Tiempo de generación: 15-05-2024 a las 07:28:37
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -33,9 +33,26 @@ CREATE TABLE `compras` (
   `ProductoID` int(11) DEFAULT NULL,
   `Cantidad` int(11) DEFAULT NULL,
   `PrecioUnitario` decimal(10,2) DEFAULT NULL,
+  `precioTotal` decimal(10,2) NOT NULL,
   `FechaCompra` date DEFAULT NULL,
   `EstadoCompra` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `compras`
+--
+
+INSERT INTO `compras` (`ID`, `UsuarioID`, `ProductoID`, `Cantidad`, `PrecioUnitario`, `precioTotal`, `FechaCompra`, `EstadoCompra`) VALUES
+(16, 1, 22, 1, 2750.00, 0.00, '2024-05-12', 'Pendiente'),
+(17, 1, 22, 2, 2750.00, 0.00, '2024-05-12', 'Pendiente'),
+(18, 1, 23, 1, 3103.00, 0.00, '2024-05-12', 'Pendiente'),
+(19, 1, 4, 2, 1268.00, 2536.00, '2024-05-12', 'Pendiente'),
+(20, 1, 5, 1, 2453.00, 2453.00, '2024-05-12', 'Pendiente'),
+(21, 1, 9, 4, 2376.00, 9504.00, '2024-05-12', 'Pendiente'),
+(22, 1, 11, 2, 3057.00, 6114.00, '2024-05-12', 'Pendiente'),
+(23, 1, 37, 1, 587.00, 587.00, '2024-05-12', 'Pendiente'),
+(24, 1, 29, 1, 145.00, 145.00, '2024-05-12', 'Pendiente'),
+(25, NULL, 22, 1, 250.00, 250.00, '2024-05-12', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -59,6 +76,68 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`ID`, `Nombre`, `Descripcion`, `Categoria`, `Precio`, `UnidadMedida`, `Stock`, `Imagen`) VALUES
+(1, 'High Density Polypropylene Bags', 'Our polypropylene bags offer a reliable solution for packaging a wide range of products. With high and low density options, as well as optional anti-static features, we ensure the safety and protection of your products during storage and transportation.', 'Polypropylene Bags', 120.00, '1000', 26, 'https://amyermprueba.000webhostapp.com/imagenes/bolsapropilenoS.jpg'),
+(2, 'Low Density Polypropylene Bags', 'Our polypropylene bags offer a reliable solution for packaging a wide range of products. With high and low density options, as well as optional anti-static features, we ensure the safety and protection of your products during storage and transportation.', 'Polypropylene Bags', 81.00, '1000', 35, 'https://amyermprueba.000webhostapp.com/imagenes/bolsapropilenoS.jpg'),
+(3, 'White cardboard boxes', 'Wide variety that adapts to the needs, we have the following materials for your comfort.', 'Cardboard boxes', 30.00, '100', 28, 'https://amyermprueba.000webhostapp.com/imagenes/cajacartonS.jpg'),
+(4, 'Kraft cardboard boxes', 'Wide variety that adapts to the needs, we have the following materials for your comfort.', 'Cardboard boxes', 28.00, '100', 21, 'https://amyermprueba.000webhostapp.com/imagenes/cajacartonS.jpg'),
+(5, 'Indestructible cardboard boxes', 'Wide variety that adapts to the needs, we have the following materials for your comfort.', 'Cardboard boxes', 53.00, '100', 32, 'https://amyermprueba.000webhostapp.com/imagenes/cajacartonS.jpg'),
+(6, 'Telescopic cardboard boxes', 'Wide variety that adapts to the needs, we have the following materials for your comfort.', 'Cardboard boxes', 18.00, '225', 27, 'https://amyermprueba.000webhostapp.com/imagenes/cajacartonS.jpg'),
+(7, 'Cardboard boxes For archiving', 'Wide variety that adapts to the needs, we have the following materials for your comfort.', 'Cardboard boxes', 22.00, '100', 34, 'https://amyermprueba.000webhostapp.com/imagenes/cajacartonS.jpg'),
+(8, 'Cardboard boxes for moving or shipping', 'Wide variety that adapts to the needs, we have the following materials for your comfort.', 'Cardboard boxes', 37.00, '100', 32, 'https://amyermprueba.000webhostapp.com/imagenes/cajacartonS.jpg'),
+(9, 'Smooth roll nail 1 ½”', 'High quality nails for pneumatic guns.', 'Nail in roll', 76.00, '3600', 20, 'https://amyermprueba.000webhostapp.com/imagenes/rolloclavosS.jpg'),
+(10, 'Smooth roll nail 2” ', 'High quality nails for pneumatic guns.', 'Nail in roll', 67.00, '3600', 19, 'https://amyermprueba.000webhostapp.com/imagenes/rolloclavosS.jpg'),
+(11, 'Smooth roll nail 2 ½”', 'High quality nails for pneumatic guns.', 'Nail in roll', 57.00, '3600', 16, 'https://amyermprueba.000webhostapp.com/imagenes/rolloclavosS.jpg'),
+(12, 'Anelado rolled cloves 1 ½”', 'High quality nails for pneumatic guns.', 'Nail in roll', 111.00, '3600', 33, 'https://amyermprueba.000webhostapp.com/imagenes/rolloclavosS.jpg'),
+(13, 'Anelado rolled cloves 2” ', 'High quality nails for pneumatic guns.', 'Nail in roll', 86.00, '3600', 32, 'https://amyermprueba.000webhostapp.com/imagenes/rolloclavosS.jpg'),
+(14, 'Anelado rolled cloves 2 ½”', 'High quality nails for pneumatic guns.', 'Nail in roll', 165.00, '3600', 37, 'https://amyermprueba.000webhostapp.com/imagenes/rolloclavosS.jpg'),
+(15, 'Spiral roll nail (Ardox) 1 ½”', 'High quality nails for pneumatic guns.', 'Nail in roll', 98.00, '3600', 36, 'https://amyermprueba.000webhostapp.com/imagenes/tornilloS.jpg'),
+(16, 'Spiral roll nail (Ardox) 2” ', 'High quality nails for pneumatic guns.', 'Nail in roll', 141.00, '3600', 27, 'https://amyermprueba.000webhostapp.com/imagenes/tornilloS.jpg'),
+(17, 'Spiral roll nail (Ardox) 2 ½”', 'High quality nails for pneumatic guns.', 'Nail in roll', 436.00, '3600', 26, 'https://amyermprueba.000webhostapp.com/imagenes/tornilloS.jpg'),
+(18, 'White Corners', 'Provide protection for gaskets in problem areas that can be damaged frequently.', 'Cornerbacks', 245.00, '50', 15, 'https://amyermprueba.000webhostapp.com/imagenes/esquineroS.jpg'),
+(19, 'Kraft corners', 'Provide protection for gaskets in problem areas that can be damaged frequently.', 'Cornerbacks', 375.00, '50', 12, 'https://amyermprueba.000webhostapp.com/imagenes/esquineroS.jpg'),
+(20, 'Plastic Corners', 'Provide protection for gaskets in problem areas that can be damaged frequently.', 'Cornerbacks', 342.00, '50', 15, 'https://amyermprueba.000webhostapp.com/imagenes/esquineroS.jpg'),
+(21, 'Corner Profiles', 'Provide protection for gaskets in problem areas that can be damaged frequently.', 'Cornerbacks', 220.00, '50', 13, 'https://amyermprueba.000webhostapp.com/imagenes/rolloS.jpg'),
+(22, 'Polybubble packaging 5/16', 'We offer a wide variety of poly bubble packaging options, from rolls of different widths to bubble bags, to protect your products during transport and storage. Our high quality bubble provides superior cushioning for fragile and delicate items.', 'Polybubble packaging', 250.00, '15', 23, 'https://amyermprueba.000webhostapp.com/imagenes/bubblewrapS.jpg'),
+(23, 'Polybubble packaging ¾', 'We offer a wide variety of poly bubble packaging options, from rolls of different widths to bubble bags, to protect your products during transport and storage. Our high quality bubble provides superior cushioning for fragile and delicate items.', 'Polybubble packaging', 103.00, '15', 15, 'https://amyermprueba.000webhostapp.com/imagenes/bubblewrapS.jpg'),
+(24, 'Polybubble packaging ½', 'We offer a wide variety of poly bubble packaging options, from rolls of different widths to bubble bags, to protect your products during transport and storage. Our high quality bubble provides superior cushioning for fragile and delicate items.', 'Polybubble packaging', 563.00, '15', 23, 'https://amyermprueba.000webhostapp.com/imagenes/bubblewrapS.jpg'),
+(25, 'Polybubble packaging \"Bubble Bags\"', 'We offer a wide variety of poly bubble packaging options, from rolls of different widths to bubble bags, to protect your products during transport and storage. Our high quality bubble provides superior cushioning for fragile and delicate items.', 'Polybubble packaging', 174.00, '15', 26, 'https://amyermprueba.000webhostapp.com/imagenes/bubblewrapS.jpg'),
+(26, 'Pallets', 'Our pallets are available in treated wood to meet export standards, guaranteeing the safety and stability of your products during international transportation. We also offer recycled wood options for those looking for eco-friendly solutions.', 'Pallets', 360.00, '50', 32, 'https://amyermprueba.000webhostapp.com/imagenes/palletS.jpg'),
+(27, 'Polyethylene Plate', 'Die-cut polyethylene plates provide a solid, sturdy base to protect your products against impacts and abrasions. Its die-cut design allows for easy handling and customization to fit your specific packaging needs.', 'Polyethylene Plate', 214.00, '19', 23, 'https://amyermprueba.000webhostapp.com/imagenes/tape-hmS.jpg'),
+(28, 'Foam', 'Our foam is available in a variety of dimensions to provide optimal protection for your products. Its closed cell structure provides excellent cushioning against shock and vibration, keeping your products safe during transport and handling.', 'Foam', 580.00, '40', 30, 'https://amyermprueba.000webhostapp.com/imagenes/foamS.jpg'),
+(29, 'Wooden packaging', 'We offer a wide range of wooden packaging solutions, from boxes to custom cages and pallets, designed to ensure maximum protection and security of your products during shipping and storage.', 'Wooden packaging', 145.00, '100', 25, 'https://amyermprueba.000webhostapp.com/imagenes/cajamaderaS.jpg'),
+(30, 'Tags', 'Our labels are available in different formats to suit your printing needs. From removable labels to durable marker options, we guarantee excellent print quality and adhesion.', 'Tags', 58.00, '300', 42, 'https://amyermprueba.000webhostapp.com/imagenes/etiquetaS.jpg'),
+(31, 'Stretch Film', 'Our stretch film offers superior protection for your products during shipping and storage. Available in different options for manual or automatic use, as well as colors for easy product identification.', 'Stretch Film', 167.00, '24', 18, 'https://amyermprueba.000webhostapp.com/imagenes/wrapS.jpg'),
+(32, 'Staples', 'Our staples are designed to provide a secure hold on a variety of materials. From industrial applications to home use, our staples ensure reliable, long-lasting performance.', 'Staples', 46.00, '2400', 26, 'https://amyermprueba.000webhostapp.com/imagenes/grapaS.jpg'),
+(33, 'Steel Strap', 'We offer a wide selection of strapping to meet your specific packaging and fastening needs.', 'Strap', 175.00, '12', 18, 'https://amyermprueba.000webhostapp.com/imagenes/flejeS.jpg'),
+(34, 'Stainless Steel Strap', 'We offer a wide selection of strapping to meet your specific packaging and fastening needs.', 'Strap', 179.00, '15', 23, 'https://amyermprueba.000webhostapp.com/imagenes/flejeS.jpg'),
+(35, 'Polypropylene strap', 'We offer a wide selection of strapping to meet your specific packaging and fastening needs.', 'Strap', 213.00, '15', 26, 'https://amyermprueba.000webhostapp.com/imagenes/flejeS.jpg'),
+(36, 'Polyester strap', 'We offer a wide selection of strapping to meet your specific packaging and fastening needs.', 'Strap', 373.00, '15', 21, 'https://amyermprueba.000webhostapp.com/imagenes/flejeS.jpg'),
+(37, 'Strap Seals for strapping', 'We offer a wide selection of strapping to meet your specific packaging and fastening needs. ', 'Strap', 587.00, '15', 27, 'https://amyermprueba.000webhostapp.com/imagenes/flejeS.jpg'),
+(38, 'Strapping Strap staples', 'We offer a wide selection of strapping to meet your specific packaging and fastening needs. ', 'Strap', 425.00, '15', 17, 'https://amyermprueba.000webhostapp.com/imagenes/flejeS.jpg'),
+(39, 'Strapping Tensioners', 'We offer a wide selection of strapping to meet your specific packaging and fastening needs.', 'Strap', 369.00, '15', 24, 'https://amyermprueba.000webhostapp.com/imagenes/flejeS.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos1`
+--
+
+CREATE TABLE `productos1` (
+  `ID` int(11) NOT NULL,
+  `Nombre` varchar(100) NOT NULL,
+  `Descripcion` text DEFAULT NULL,
+  `Categoria` varchar(50) DEFAULT NULL,
+  `Precio` decimal(10,2) NOT NULL,
+  `UnidadMedida` varchar(20) DEFAULT NULL,
+  `Stock` int(11) NOT NULL,
+  `Imagen` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `productos1`
+--
+
+INSERT INTO `productos1` (`ID`, `Nombre`, `Descripcion`, `Categoria`, `Precio`, `UnidadMedida`, `Stock`, `Imagen`) VALUES
 (1, 'Bolsas de Polipropileno de Alta Densidad', 'Nuestras bolsas de polipropileno ofrecen una solución confiable para el empaque de una amplia gama de productos. Con opciones de alta y baja densidad, así como características antiestáticas opcionales, garantizamos la seguridad y protección de tus productos durante el almacenamiento y transporte. ', 'Bolsas de Polipropileno', 1270.00, '1000', 26, 'https://amyermprueba.000webhostapp.com/imagenes/bolsapropilenoS.jpg'),
 (2, 'Bolsas de Polipropileno de Baja Densidad', 'Nuestras bolsas de polipropileno ofrecen una solución confiable para el empaque de una amplia gama de productos. Con opciones de alta y baja densidad, así como características antiestáticas opcionales, garantizamos la seguridad y protección de tus productos durante el almacenamiento y transporte. ', 'Bolsas de Polipropileno', 815.00, '1000', 35, 'https://amyermprueba.000webhostapp.com/imagenes/bolsapropilenoS.jpg'),
 (3, 'Cajas de cartón Blancas', 'Amplia variedad que se adecuan a las necesidades, contamos con los siguientes materiales para su comodidad.  ', 'Cajas de cartón', 1430.00, '100', 28, 'https://amyermprueba.000webhostapp.com/imagenes/cajacartonS.jpg'),
@@ -144,6 +223,7 @@ CREATE TABLE `usuarios` (
   `ID` int(11) NOT NULL,
   `Nombre` varchar(100) NOT NULL,
   `Correo` varchar(100) NOT NULL,
+  `Numero` varchar(10) NOT NULL,
   `Contraseña` varchar(100) NOT NULL,
   `Direccion` varchar(255) DEFAULT NULL,
   `RolID` int(11) DEFAULT NULL
@@ -153,13 +233,20 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID`, `Nombre`, `Correo`, `Contraseña`, `Direccion`, `RolID`) VALUES
-(1, 'Ari Mendoza', 'arimendoza@hotmail.com', 't4t', 'Rie aldeme 777', 1),
-(2, 'Hannibal', 'canibal@example.com', 'will<3', 'Baltimore 123', 2),
-(3, '', 'admin@gmail.com', 'admin', NULL, NULL),
-(4, '', 'toytite@coyeye.com', 'gatotite', NULL, NULL),
-(5, '', '', '', NULL, NULL),
-(6, '', 'quepaso@gmail.com', 'quepaso', NULL, NULL);
+INSERT INTO `usuarios` (`ID`, `Nombre`, `Correo`, `Numero`, `Contraseña`, `Direccion`, `RolID`) VALUES
+(1, 'Daniel Mendoza', 'arimendoza@hotmail.com', '6562002000', 't4t', 'Rio aldama', 1),
+(2, 'Hannibal', 'canibal@example.com', '0', 'will<3', 'Baltimore 123', 2),
+(16, 'Johana Alaska', 'Rolaskatox@gmail.com', '0', 'rolaska', 'rolaska', NULL),
+(17, 'Ari Mendoza', 'ariari@gmail.com', '0', '2345', 'Aldama', NULL),
+(19, 'jenn Mendoza', 'andyandy@gmail.com', '0', 'andy', 'adnycalle', NULL),
+(20, 'Rose Kim', 'rose@gmail.com', '0', 'rose', 'LA', NULL),
+(22, 'Ari Romero', 'quepasiso@gmail.com', '0', 'papa', 'adnycalle', NULL),
+(24, 'San Mendoza', 'sansansan@gmail.com', '6561234567', 'sansan', 'san san', NULL),
+(25, 'siddartha sid', 'siddartha@gmail.com', '0', 'sidd', 'LA', NULL),
+(26, 'T Lao', 'Tlao@gmail.com', '0', '123', 'LA', NULL),
+(27, 'diana nao', 'diana@gmail.com', '0', 'diana', 'favor del invierno', NULL),
+(29, 'Senna Dao', 'sennadj@gmail.com', '6566487924', 'lucian', 'Linterna de Thresh', NULL),
+(30, 'Santi Rom', 'Rom@gmail.com', '6561234567', 'Rom', 'Hacienda Las Cruces', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -177,6 +264,12 @@ ALTER TABLE `compras`
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indices de la tabla `productos1`
+--
+ALTER TABLE `productos1`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -206,12 +299,18 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT de la tabla `productos1`
+--
+ALTER TABLE `productos1`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
@@ -230,7 +329,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Restricciones para tablas volcadas
@@ -241,7 +340,7 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `compras`
   ADD CONSTRAINT `compras_ibfk_1` FOREIGN KEY (`UsuarioID`) REFERENCES `usuarios` (`ID`),
-  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`ProductoID`) REFERENCES `productos` (`ID`);
+  ADD CONSTRAINT `compras_ibfk_2` FOREIGN KEY (`ProductoID`) REFERENCES `productos1` (`ID`);
 
 --
 -- Filtros para la tabla `usuarios`
