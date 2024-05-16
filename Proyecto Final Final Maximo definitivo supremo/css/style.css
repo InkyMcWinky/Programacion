@@ -1,0 +1,2646 @@
+@font-face {
+    font-family: 'Dubai Regular';
+    src: local('Dubai Regular'), url('Dubai-Regular.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Dubai Light';
+    src: local('Dubai Light'), url('Dubai-Light.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'Dubai Medium';
+    src: local('Dubai Medium'), url('Dubai-Medium.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Dubai Bold';
+    src: local('Dubai Bold'), url('Dubai-Bold.woff') format('woff');
+}
+
+
+html {
+    box-sizing: border-box;
+    font-family: 'Dubai Medium';
+    font-size: 62.5%;
+}
+
+.oculto {
+    display: none;
+}
+
+/* --------------- MENU --------------- */
+#menu {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    z-index: 1;
+}
+
+#menu-container {
+    width: 100%;
+    height: auto;
+    background-color: #12213B;
+}
+
+.nav-container {
+    max-width: 1920px;
+    height: 80px;
+    padding: 0 40px;
+    margin: auto;
+}
+
+.nav-container input[type="checkbox"],
+.nav-container .hamburger-lines {
+    display: none;
+}
+
+#logo {
+    width: 6rem;
+    display: block;
+    float: left;
+    margin: 10px auto;
+}
+
+#wps {
+    font-family: 'Dubai Medium';
+    width: auto;
+    color: #FB8500;
+    margin: 2.7rem 0 2.7rem 2rem;
+    float: left;
+    display: block;
+
+}
+
+#menuRight {
+    height: 80px;
+    width: 74%;
+    float: right;
+}
+
+.main-nav-container {
+    width: 70%;
+    height: 80px;
+    display: block;
+    margin: auto;
+    float: right;
+}
+
+.menuBox {
+    float: left;
+}
+
+.menuItem {
+    font-family: 'Dubai Medium';
+    color: #EFF3FA;
+}
+
+.menuItem:hover,
+.menuItem:active {
+    color: #FFB703;
+}
+
+
+
+.menuBox:hover #subMenuBox,
+.menuBox:active #subMenuBox {
+    display: block;
+}
+
+
+
+.sMenuBox a {
+    color: #EFF3FA;
+}
+
+.sMenuBox:hover,
+.sMenuBox:active {
+    background-color: #5681C8;
+    cursor: pointer;
+}
+
+/* ----- Menu derecho ----- */
+#shopBtn {
+    width: auto;
+    height: 60px;
+    padding: 10px 0;
+    float: right;
+}
+
+#cart {
+    cursor: pointer;
+}
+
+#stotal {
+    height: 30px;
+    padding: 20px 0;
+    color: #EFF3FA;
+    float: right;
+    display: none;
+    font-size: 1.6em;
+    margin-left: 6px;
+}
+
+
+.accBtn {
+    display: block;
+    height: 30px;
+    margin: 20px 10px;
+    padding: 5px 10px;
+    font-family: 'Dubai Medium';
+    width: auto;
+    float: right;
+    background-color: #FFB703;
+    border-radius: 50px;
+}
+
+#picon {
+    float: left;
+
+}
+
+#logIn {
+    display: block;
+    margin: 4px;
+    font-family: 'Dubai Medium';
+    float: left;
+}
+
+#logOut {
+    margin: 4px;
+    font-family: 'Dubai Medium';
+    float: left;
+}
+
+/*----- No mostrar -----*/
+
+/*----- Telefono -----*/
+#cell {
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    background: #2F4875;
+    margin: auto;
+    margin-top: -1px;
+    border-radius: 0 0 25px 25px;
+    text-align: center;
+    opacity: 80%;
+    position: relative;
+    z-index: -1;
+}
+
+#cicon {
+    float: left;
+    display: block;
+}
+
+#cell h4 {
+    width: auto;
+    color: #EFF3FA;
+    font-family: 'Dubai Regular';
+    text-decoration: none;
+    margin: 0 auto;
+    font-weight: normal;
+}
+
+/* --------------- BODY --------------- */
+#contenedor {
+    width: 90%;
+    height: auto;
+    background: #EFF3FA;
+    padding: 17rem 5% 10%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 4rem;
+}
+
+/* ---------- Carrusel ---------- */
+.slidhow-container {
+    height: auto;
+    max-width: 150rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mySlides {
+    display: none;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50rem;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: #FFB703;
+    font-size: 50px;
+    transition: 0.6s ease;
+    border-radius: 10px;
+    user-select: none;
+}
+
+.next {
+    right: 7.7rem;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(47, 72, 117, 0.71);
+}
+
+#dots-container {
+    width: 124px;
+    margin: auto;
+    position: relative;
+    bottom: 36px;
+}
+
+.dot {
+    height: 10px;
+    width: 25px;
+    cursor: pointer;
+    margin: 0 2px;
+    background-color: #EFF3FA;
+    border-radius: 20px;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #FB8500;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* ---------- Buscador ---------- */
+#searchBar {
+    max-width: 1600px;
+    height: 50px;
+    margin: 2rem auto;
+}
+
+#searchBar ::placeholder {
+    color: #5681C8;
+}
+
+#myInput {
+    width: 90%;
+    height: 30px;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: 1px solid #5681C8;
+    margin: auto;
+    margin-bottom: 12px;
+    display: block;
+    color: #12213B;
+    border-radius: 10px;
+}
+
+#search {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    display: block;
+    position: relative;
+    background-color: #5681C8;
+    border: 1px solid #5681C8;
+    border-radius: 0 10px 10px 0;
+    cursor: pointer;
+    left: 93%;
+    top: -64px;
+}
+
+#search:active {
+    background-color: #FFBF58;
+    border: 1px solid #FFBF58;
+}
+
+/* ---------- Categorias ---------- */
+.categories {
+    padding: 5rem 0;
+}
+
+.category {
+    margin-bottom: 0;
+    cursor: pointer;
+    box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.16);
+
+
+}
+
+.category img {
+    width: 100%;
+    height: auto;
+}
+
+.category a {
+    text-align: center;
+    display: block;
+    padding: 2rem;
+    transition: 0.3s;
+    color: #EFF3FA;
+    background-color: #2F4875;
+    border-radius: 0 0 2px 2px;
+}
+
+.category:hover {
+    border-radius: 1rem;
+}
+
+.category:hover a,
+.category:active a {
+    background-color: #FB8500;
+    color: #FFFFFF;
+}
+
+/*----------- Listado deproductos-----------*/
+
+.producto {
+    max-width: 1500px;
+    margin: 2rem auto 0;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.16);
+    -webkit-box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.16);
+    -moz-box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.16);
+}
+
+.producto:hover {}
+
+.producto.grande {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.producto.grande img {
+    height: 60rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.texto-producto {
+    width: 50em;
+    text-align: center;
+    color: #EFF3FA;
+    background-color: #2F4875;
+    padding: 6rem 5rem;
+}
+
+.texto-producto h3 {
+    line-height: 1;
+    font-size: 3rem;
+    margin: 30px 0;
+}
+
+.texto-producto p {
+    font-size: 2.5rem;
+    margin: 0 0 1rem 0;
+    text-overflow: ellipsis;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-family: 'Dubai Bold';
+    font-weight: 500;
+    color: #FFBF58;
+}
+
+.add {
+    width: 250px;
+    padding: 2rem 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #EFF3FA;
+    background-color: #FB8500;
+    border: none;
+    border-radius: 50px;
+}
+
+.add:hover,
+.add:active {
+    background-color: #5681C8;
+    color: #12213B;
+}
+
+/* ---------- account ----------- */
+#menu-cliente {
+    max-width: 1920px;
+}
+
+.cliente-label {
+    width: 97%;
+    background-color: #FB8500;
+    padding: 1% 1.5%;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#client-name {
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+#client-ID {
+    text-align: right;
+    font-size: 3rem;
+    margin: 0;
+    float: right;
+}
+
+.divided {
+    display: grid;
+    grid-template-columns: 18% auto;
+    height: 80rem;
+}
+
+.menu-a {
+    background-color: #FFBF58;
+    font-size: 3.5rem;
+    font-family: 'Dubai Bold';
+}
+
+.myitem {
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.myitem:hover,
+.myitem:active {
+    background-color: rgba(251, 133, 0, 0.6);
+}
+
+/* ----- User settings -----*/
+
+#settings {
+    width: 92%;
+    padding: 3%;
+    font-size: 2.4rem;
+    display: none;
+}
+
+.settings table {
+    padding: 10% auto;
+}
+
+.settings tr {
+    display: grid;
+    grid-template-columns: 20% auto 20%;
+    padding: 0 2%;
+}
+
+.settings td {
+    padding: 1rem 0;
+}
+
+.settings h3 {
+    font-size: 3rem;
+    margin: 1.5rem 0;
+}
+
+.settings h4 {
+    margin: 0;
+    float: left;
+}
+
+.settings p {
+    margin: 0;
+    float: left;
+}
+
+.settings button {
+    border: none;
+    border-radius: 25px;
+    background-color: #2F4875;
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 1.8rem;
+}
+
+#logoutBtn {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/*-------  BORRAR CUENTA  -------*/
+#btnDeleteAcc {
+    float: left;
+    background-color: rgba(47, 72, 117, 0.3);
+}
+
+#dltAcc {
+    font-size: 3rem;
+}
+
+
+
+/*--------------*/
+#info-c {
+    background-color: #fff;
+    width: 100%;
+    padding-bottom: 5rem;
+}
+/*#orders {
+    display: none;
+}*/
+
+.info-client {
+    position: relative;
+}
+
+
+.none {
+    font-size: 4rem;
+    text-align: center;
+    color: #5681C8;
+}
+
+.none h3 {
+    width: 100%;
+    position: relative;
+    margin: 0;
+    top: -20vw;
+}
+
+.logo-fondo {
+    background-image: url(../images/LOGO.png);
+    background-repeat: no-repeat;
+    height: 40rem;
+    background-position: center;
+    background-size: contain;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    opacity: 25%;
+}
+
+
+/*------ Ordenes ------*/
+#orders table {
+    /*display: block;*/
+}
+
+
+table {
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.info-client th {
+    width: 1%;
+    background-color: #5681C8;
+    padding: 01rem;
+    font-size: 2.8rem;
+}
+
+.info-client tr:nth-child(odd) {
+    background-color: #EFF3FA;
+}
+
+.info-client td {
+    border-color: #5681C8;
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+
+/*----- Ventanas de configuración -----*/
+#window-sh {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 33, 59, 0.4);
+    top: 80px;
+    display: none;
+    position: fixed;
+    z-index: 0;
+}
+
+.window {
+    position: absolute;
+    padding: 2rem;
+    width: 50%;
+    height: auto;
+    background-color: #EFF3FA;
+    margin: 7.7rem auto;
+    overflow: auto;
+    position: static;
+    /*display: none;*/
+    font-size: 2.5rem;
+    padding: 3%;
+    border-radius: 1vw;
+}
+
+.window h1 {
+    font-size: 3rem;
+}
+
+.window input {
+    width: 75%;
+    margin-left: 2rem;
+    background-color: #fff;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.cancel,
+.update {
+    float: right;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 25vh;
+}
+
+.cancel {
+    background-color: #2F4875;
+    color: #fff;
+    cursor: pointer;
+}
+
+.update {
+    margin-left: 2rem;
+    background-color: #FB8500;
+    color: #000;
+    cursor: pointer;
+}
+
+.update:hover {
+    background-color: #5681C8
+}
+
+/* ----------- checkout ---------- */
+.shop-cart-big {
+    width: 100%;
+}
+
+.col-25 h2 {
+    font-size: 3.5rem;
+    color: #2F4875;
+    margin: 0 0 1rem;
+}
+
+.shop-line {
+    width: 100%;
+    height: 3px;
+    background-color: #5681C8;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+}
+
+.title-bar {
+    background-color: #2F4875;
+    color: #EFF3FA;
+    display: grid;
+    font-family: 'Dubai Bold'
+}
+
+.secc {
+    margin: auto 0;
+}
+
+.secc h3 {
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+#p-label h3 {
+    text-align: left;
+}
+
+.item {
+    display: grid;
+    text-align: center;
+    background-color: #fff;
+}
+
+.prod-desc {
+    text-align: left;
+}
+
+.delete-btn {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: url(/images/delete.svg) no-repeat center;
+}
+
+.totales {
+    text-align: right;
+    display: grid;
+
+}
+
+.total {
+    position: relative;
+    font-weight: 800;
+}
+
+.shop-buttons {
+    text-align: right;
+}
+
+.shop-buttons button {
+    border-color: transparent;
+    font-weight: 600;
+    color: #12213B;
+}
+
+#quote {
+    background-color: #FFBF58;
+}
+
+#quote:active,
+#quote:hover {
+    background-color: #2F4875;
+    color: #fff;
+}
+
+#check {
+    background-color: #FB8500;
+}
+
+#check:active,
+#check:hover {
+    background-color: #12213B;
+    color: #EFF3FA;
+}
+
+/* ----------- about us ---------- */
+
+.aboutUs h2 {
+    color: #2F4875;
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.text {
+    font-size: 2.5rem;
+    font-family: 'Dubai Light';
+    font-weight: 600;
+    text-align: center;
+}
+
+.big {
+    font-size: 3.5rem;
+    max-width: 1440px;
+    margin: auto;
+}
+
+.info-box {
+    max-width: 1600px;
+    transition: 0.3s;
+    box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.16);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 6rem auto;
+    position: relative;
+    animation-name: animation2;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+
+}
+
+@keyframes animation2 {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+
+.info-box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.info-box.der {
+    animation-name: animation3;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes animation3 {
+    from {
+        right: -100%;
+    }
+
+    to {
+        right: 0px;
+    }
+}
+
+
+
+
+/* ----------- support ----------- */
+
+.sp {
+    font-size: 8rem;
+    text-align: center;
+    margin: 0 0 2rem;
+    font-weight: 600;
+    color: #12213B;
+}
+
+#faq {
+    width: 90%;
+    margin: auto;
+    padding: 5%;
+    padding-top: 0;
+}
+
+#faq h2 {
+    font-size: 5rem;
+    color: #2F4875;
+}
+
+#faq h3 {
+    font-size: 3.5rem;
+}
+
+#faq p {
+    font-size: 3rem;
+}
+
+.question {
+    text-align: right;
+    font-size: 2.5rem;
+}
+
+
+.question a {
+    color: #2F4875;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.question a:hover,
+.question a:active {
+    color: #5681C8;
+}
+
+
+.bigBox {
+    background-color: #2F4875;
+    padding: 8rem;
+    color: #EFF3FA;
+    font-size: 4rem;
+    box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.16);
+}
+
+.bigBox h2 {
+    font-size: 10rem;
+    margin: auto;
+}
+
+.bigBox h3 {
+    font-size: 5rem;
+    margin: 2rem 0;
+    font-weight: 100;
+    color: #FFBF58;
+}
+
+.bigBox h4 {
+    margin: 1rem 0;
+    font-weight: 100;
+    font-size: 5rem;
+}
+
+.yText {
+    width: 100%;
+    margin: 1.5rem 0;
+    color: #FFBF58;
+}
+
+/* ---------- log in ---------- */
+.contenedor-logs {
+    width: 100%;
+    height: 80rem;
+}
+
+.sig {
+    width: 100%;
+    height: 125rem;
+}
+
+.logs {
+    width: 60%;
+    display: block;
+    margin: auto;
+    padding: 4%;
+    background-color: transparent;
+
+}
+
+.logs:hover,
+.logs:active {
+    background-color: #5681C8;
+}
+
+.logs h2 {
+    font-size: 5rem;
+    color: #12213B;
+    margin: 0 0 2rem 0;
+}
+
+.logs ::placeholder {
+    color: #5681C8;
+}
+
+.contenedor-logs input {
+    width: 83%;
+    margin: 4rem;
+    background-color: #fff;
+    border: none;
+    font-size: 2.5rem;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contenedor-logs input[type=submit],
+#botonSignin, #dltAcc button {
+    width: 40%;
+    padding: 2rem;
+    margin: 3rem 30%;
+    border: none;
+    border-radius: 50px;
+    font-size: 3.2rem;
+    font-family: 'Dubai Bold';
+}
+
+.logs span {
+    font-size: 2.2rem;
+    float: right;
+    color: #EFF3FA;
+}
+
+.logs:hover,
+.logs:active span {
+    color: #EFF3FA;
+}
+
+span a {
+    text-decoration: underline;
+    color: #EFF3FA;
+}
+
+span a:hover,
+span a:active {
+    color: #2F4875;
+}
+
+#log input[type=submit], #dltAcc button {
+    background-color: #2F4875;
+    color: #EFF3FA;
+}
+
+#log input[type=submit]:hover,
+#log input[type=submit]:active, #dltAcc button:hover, #dltAcc button:active {
+    background-color: #FB8500;
+    color: #12213B;
+}
+
+#botonSignin {
+    background-color: #FB8500;
+    color: #12213B;
+}
+
+#botonSignin:hover,
+#botonSignin:active {
+    background-color: #2F4875;
+    color: #EFF3FA;
+}
+
+.error {
+    font-size: 1.8rem;
+    margin-top: 5rem;
+}
+
+/* ----------- Policies ----------- */
+.policy {
+    width: 80%;
+    height: 60%;
+    margin: 7.7rem 7%;
+    overflow: auto;
+    position: static;
+    display: none;
+    font-size: 2.5vw;
+    background-color: #fff;
+    padding: 3%;
+    top: 8vw;
+    border-radius: 1vw;
+}
+
+.policy h1 {
+    font-size: 3vw;
+}
+
+.policy h2 {
+    font-size: 2.2vw;
+}
+
+.close {
+    width: 3rem;
+    height: 3rem;
+    position: relative;
+    float: right;
+    cursor: pointer;
+    background-image: url(../images/delete.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.policy-logo {
+    width: 15vw;
+    height: 15vw;
+    background-image: url(../images/LOGO.png);
+    background-repeat: no-repeat;
+    margin: 2vw auto;
+}
+
+#policy-shadow {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 33, 59, 0.4);
+    top: 80px;
+    display: none;
+    position: fixed;
+    z-index: 0;
+}
+
+/* --------------- FOOTER --------------- */
+
+footer {
+    width: 90%;
+    height: auto;
+    padding: 5%;
+    background-color: #12213B;
+    font-family: 'Dubai Regular';
+    color: #EFF3FA;
+    z-index: 1;
+}
+
+.grid-footer {
+    max-width: 1920px;
+    height: 200px;
+    margin: auto;
+
+}
+
+.footer-menu {
+    width: 22%;
+    display: block;
+    float: left;
+}
+
+.footItem {
+    color: #EFF3FA;
+    display: block;
+    margin: 2.5% 0;
+}
+
+.footItem:hover,
+.footItem:active {
+    color: #FFBF58;
+}
+
+.footItem h3 {
+    font-weight: 500;
+    margin: 0 0 2% 0;
+}
+
+#joinEmail {
+    width: 30%;
+    display: block;
+    float: right;
+}
+
+#joinEmail h2 {
+    color: #FFBF58;
+    font-weight: 500;
+    margin: 0 0 2% 0;
+}
+
+#joinEmail h3 {
+    font-weight: 500;
+    margin: 0 0 2% 0;
+}
+
+#email {
+    width: 87%;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: #EFF3FA;
+    border-bottom: 1px solid;
+    color: #FFBF58;
+}
+
+#joinEmail ::placeholder {
+    color: #FFBF58;
+}
+
+#joinBtn {
+    background-color: #FFB703;
+    text-align: center;
+    align-self: center;
+    border-radius: 50px;
+    border: none;
+}
+
+#join {
+    font-family: 'Dubai Medium';
+    font-weight: bold;
+    color: #12213B;
+}
+
+#copyright {
+    width: auto;
+    height: auto;
+    background: #FB8500;
+    padding: 1rem;
+}
+
+#copy {
+    font-family: 'Dubai Medium';
+    margin: auto;
+    text-align: center;
+}
+
+
+/* --------------- RESPONSIVE --------------- */
+@media (max-width: 2560px) {
+    #wps {
+        font-size: 2.8rem;
+        margin: 2.4rem 0 2.4rem 2rem;
+    }
+
+    #wps2 {
+        display: none;
+    }
+
+    .menuItem {
+        font-size: 2.5rem;
+    }
+
+    #logIn {
+        font-size: 2.5rem;
+        margin: 0 4px;
+    }
+
+    .menuBox {
+        width: 25%;
+        height: 30px;
+        display: block;
+        margin: auto;
+        text-align: center;
+        padding: 25px 0px;
+    }
+
+    #subMenuBox {
+        display: none;
+        margin-top: 25px;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    #subMenuBox2 {
+        display: none;
+    }
+
+    #subMenuBox2 .sMenuBox {
+        background-color: transparent;
+    }
+
+    .sMenuBox {
+        width: 100%;
+        font-size: 1.5rem;
+        text-align: left;
+        background-color: rgba(18, 33, 59, 0.9);
+        padding: 15px 0 20px 15px;
+        z-index: 2;
+    }
+
+    #bar {
+        height: 60px;
+        width: 3px;
+        background-color: #5681C8;
+        display: block;
+        float: right;
+        margin: 10px 5px;
+        border-radius: 2px;
+    }
+
+    #accountBtn {
+        height: 30px;
+        margin: 20px 10px;
+        padding: 5px 10px;
+    }
+
+    #cart {
+        width: 5rem;
+        height: 5rem;
+        margin: 5px 0;
+    }
+
+    #btnCarrito,
+    #btnCuenta {
+        display: none;
+    }
+
+    #picon {
+        height: 3rem;
+    }
+
+    #cicon {
+        width: 3rem;
+        height: 25px;
+        margin-left: 4px;
+    }
+
+    #cell h4 {
+        font-size: 2.4rem;
+    }
+
+    .category a {
+        font-size: 3rem;
+    }
+
+    label {
+        font-size: 2rem;
+        font-family: 'Dubai Medium';
+    }
+
+    .categories-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+    }
+
+    .text-box {
+        text-align: center;
+        color: #EFF3FA;
+        background-color: #2F4875;
+        padding: 16rem 6rem;
+    }
+
+    .text-box h3 {
+        font-size: 4rem;
+        font-weight: 100;
+        margin: 0;
+    }
+
+    .text-box p {
+        font-size: 2.5rem;
+        font-family: 'Dubai Light';
+    }
+
+    /*------ carrito -------*/
+    .title-bar {
+        font-size: 2.8em;
+        padding: 1rem 2rem;
+        grid-template-columns: 50% 17% 8% 12% 12% 1%;
+    }
+
+    .item {
+        font-size: 24px;
+        padding: 1rem 2rem;
+        grid-template-columns: 50% 17% 8% 12% 12% 1%;
+    }
+
+    .delete-btn {
+        width: 18px;
+        height: 18px;
+    }
+
+    .totales {
+        font-size: 26px;
+        margin: 1rem 6% 2rem 0;
+    }
+
+    .total {
+        right: -2.3em;
+        font-size: 30px;
+    }
+
+    .shop-buttons button {
+        padding: 2rem 4rem;
+        font-size: 34px;
+        border-radius: 50px;
+        margin-left: 2.5rem;
+    }
+
+    /*--------------------------*/
+
+    .footItem h3 {
+        font-size: 3.5rem;
+    }
+
+    .footItem {
+        font-size: 2.5rem;
+    }
+
+    #joinEmail {
+        font-size: 2.5rem;
+    }
+
+    #joinEmail h2 {
+        font-size: 3.5rem;
+    }
+
+    #joinEmail h3 {
+        font-size: 2.8rem;
+    }
+
+    #joinBtn {
+        width: 180px;
+        height: 30px;
+        padding: 10px;
+        margin: 8% auto 0;
+    }
+
+    #join {
+        font-size: 3rem;
+    }
+
+    #copy {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 1920px) {
+    #wps {
+        font-size: 2.2rem;
+    }
+
+    .menuItem {
+        font-size: 2.2rem;
+    }
+
+
+    #logIn {
+        font-size: 2.2rem;
+        line-height: 1.5;
+    }
+
+    #cart {
+        margin: 10px 0;
+        width: 4rem;
+        height: 4rem;
+    }
+
+    #subMenuBox {
+        margin-top: 30px;
+    }
+
+    .category a {
+        font-size: 2.5rem;
+    }
+
+    /*-------------------*/
+    .title-bar {
+        font-size: 22px;
+    }
+
+    .totales {
+        font-size: 24px;
+        margin: 1rem 5.6% 2rem 0;
+    }
+
+    .total {
+        right: -2.3em;
+        font-size: 26px;
+    }
+
+    .shop-buttons button {
+        padding: 1rem 2rem;
+        font-size: 22px;
+        border-radius: 50px;
+        margin-left: 2.5rem;
+    }
+
+    /*--------*/
+    .footItem h3 {
+        font-size: 2.5rem;
+    }
+
+    .footItem {
+        font-size: 2rem;
+    }
+
+    #joinEmail {
+        font-size: 2rem;
+    }
+
+    #joinEmail h2 {
+        font-size: 2.8rem;
+    }
+
+    #joinEmail h3 {
+        font-size: 2.2rem;
+    }
+
+    #join {
+        font-size: 2.5rem;
+    }
+
+    #copy {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 1600px) {
+    .sp {
+        font-size: 5rem;
+    }
+
+    #faq h2 {
+        font-size: 3.2rem;
+        margin: 2rem 0;
+    }
+
+    #faq h3 {
+        font-size: 2.4rem;
+        margin: 1rem 0 0;
+    }
+
+    #faq p {
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+
+    .bigBox {
+        width: 80%;
+        margin: auto;
+        padding: 4rem;
+        font-size: 3rem;
+    }
+
+    .bigBox h2 {
+        font-size: 6rem;
+    }
+
+    .bigBox h3 {
+        font-size: 4rem;
+    }
+
+    .bigBox h4 {
+        font-size: 4rem;
+    }
+
+    .yText {
+        margin: 1rem 0;
+    }
+
+
+}
+
+@media (max-width: 1440px) {
+    #logo {
+        width: 5rem;
+        margin: 15px auto;
+    }
+
+    #wps {
+        font-size: 1.8rem;
+        margin: 2.8rem 0 1.5rem;
+    }
+
+    #menuRight {
+        width: 68%;
+    }
+
+
+    .menuItem {
+        font-size: 1.8rem;
+    }
+
+    #logIn {
+        font-size: 1.8rem;
+        margin: 4.5px;
+        line-height: 1.15;
+    }
+
+    #cell {
+        width: 180px;
+    }
+
+    #cicon {
+        width: 3rem;
+        height: 25px;
+        margin-left: 0;
+    }
+
+    #cell h4 {
+        font-size: 2.2em;
+    }
+
+    /*-----------------------*/
+    .title-bar {
+        grid-template-columns: 45% 17% 10% 14% 13% 1%;
+    }
+
+    .item {
+        font-size: 18px;
+        grid-template-columns: 45% 17% 10% 14% 13% 1%;
+    }
+
+    .totales {
+        font-size: 22px;
+        margin: 1rem 6.2% 2rem 0;
+    }
+
+    .total {
+        right: -2.3em;
+        font-size: 24px;
+    }
+
+    /*-----------------------*/
+
+
+    .categories-list {
+        display: grid;
+        grid-template-columns: repeat(3, 2fr);
+        gap: 1.5rem;
+    }
+
+    .producto.grande {
+        display: block;
+    }
+
+    .producto.grande img {
+        height: auto;
+    }
+
+    .texto-producto {
+        width: 84%;
+        padding: 6% 8%;
+    }
+
+    .texto-producto h3 {
+        font-size: 4rem;
+    }
+
+    .texto-producto p {
+        font-size: 3rem;
+    }
+
+    .price {
+        font-size: 3.5rem;
+    }
+
+    .bigBox {
+        font-size: 3.5rem;
+    }
+
+    /* -------------------- */
+    .aboutUs h2 {
+        font-size: 4rem;
+        margin: 1.5rem 0;
+    }
+
+    .text {
+        font-size: 2.8rem;
+    }
+
+    .footItem h3 {
+        font-size: 2.2rem;
+    }
+
+    .footItem {
+        font-size: 1.8rem;
+    }
+
+    #joinEmail {
+        font-size: 1.8rem;
+    }
+
+    #joinEmail h2 {
+        font-size: 2.4rem;
+    }
+
+    #joinEmail h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    #email {
+        width: 82%;
+    }
+
+    #joinBtn {
+        width: 120px;
+        height: 25px;
+    }
+
+    #join {
+        font-size: 2.2rem;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    #picon {
+        height: 2.5em;
+    }
+
+    #cell {
+        width: 150px;
+        height: 25px;
+    }
+
+    #cicon {
+        width: 2rem;
+        height: 2rem;
+        margin-left: 0;
+    }
+
+    #cell h4 {
+        font-size: 1.8em;
+    }
+
+    #myInput {
+        padding: 5px 10px;
+    }
+
+    #search {
+        height: 30px;
+        width: 30px;
+        top: -54px;
+    }
+
+    .categories {
+        padding: 2rem 0;
+    }
+
+    .text-center {
+        font-size: 3rem;
+        margin: 3rem auto;
+    }
+
+    .category a {
+        font-size: 2rem;
+    }
+
+    /*--------------------------*/
+
+    .title-bar {
+        font-size: 1.6em;
+        padding: 8px 1rem;
+        grid-template-columns: 44% 17% 10% 14% 13% 2%;
+    }
+
+    .secc {
+        padding: 0 4px;
+    }
+
+    .item {
+        font-size: 16px;
+        padding: 8px 1rem;
+        grid-template-columns: 44% 17% 10% 14% 13% 2%;
+    }
+
+    .delete-btn {
+        width: 14px;
+        height: 14px;
+    }
+
+    /*--------------------------*/
+
+    .aboutUs h2 {
+        margin: 0 0 1.5rem;
+    }
+
+    .text {
+        font-size: 2.4rem;
+    }
+
+    .text-box {
+        padding: 8rem 4rem;
+    }
+
+    .text-box h3 {
+        font-size: 3.5rem;
+    }
+
+    .footer-menu {
+        width: auto;
+        margin-left: 3rem;
+    }
+
+    .footItem {
+        font-size: 1.6rem;
+    }
+
+    .footItem h3 {
+        font-size: 2rem;
+    }
+
+    #joinEmail {
+        font-size: 1.6rem;
+    }
+
+    #joinEmail h2 {
+        font-size: 2rem;
+    }
+
+    #joinEmail h3 {
+        font-size: 1.6rem;
+    }
+
+    #email {
+        width: 75%;
+    }
+
+    #joinBtn {
+        width: 80px;
+        height: 20px;
+        padding: 5px;
+    }
+
+    #join {
+        font-size: 1.8rem;
+    }
+
+    #copy {
+        font-size: 1.6rem;
+    }
+
+}
+
+@media (max-width: 950px) {
+    #logo {
+        margin-right: 1rem;
+    }
+
+    #menuRight {
+        width: auto;
+    }
+
+    .nav-container input[type="checkbox"],
+    .nav-container .hamburger-lines {
+        display: block;
+    }
+
+    .nav-container input[type="checkbox"] {
+        display: block;
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        top: 20px;
+        right: 40px;
+        opacity: 0;
+        cursor: pointer;
+        float: right;
+        z-index: 5;
+    }
+
+    .nav-container .hamburger-lines {
+        display: block;
+        height: 40px;
+        width: 40px;
+        top: 20px;
+        right: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        float: right;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .nav-container .hamburger-lines .line {
+        display: block;
+        height: 6px;
+        width: 100%;
+        border-radius: 10px;
+        background: #EFF3FA;
+    }
+
+    .nav-container .hamburger-lines .line1 {
+        transform-origin: 0% 0%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-container .hamburger-lines .line2 {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .nav-container .hamburger-lines .line3 {
+        transform-origin: 0% 100%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-container input[type="checkbox"]:checked ~ .main-nav-container {
+        transform: translate(0);
+        right: -2px;
+    }
+
+    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines {
+        transition: transform 0.3s ease-in-out;
+        height: 40px;
+        width: 50px;
+        right: 30px;
+
+    }
+
+    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line1 {
+        transform: rotate(45deg);
+    }
+
+    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line2 {
+        transform: scaleY(0);
+    }
+
+    .nav-container input[type="checkbox"]:checked ~ .hamburger-lines .line3 {
+        transform: rotate(-45deg);
+    }
+
+    #bar {
+        display: none;
+    }
+
+    #shopBtn {
+        margin-right: 6rem;
+    }
+
+    .main-nav-container {
+        margin-top: 80px;
+        padding: 0;
+        background: rgba(18, 33, 59, 0.93);
+        height: 100vh;
+        max-width: 300px;
+        transform: translateX(218%);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease-in-out;
+        position: absolute;
+    }
+
+    .menuBox {
+        padding: 3rem 2.5rem;
+        width: 100%;
+        text-align: left;
+        margin: 0;
+    }
+
+    .menuItem {
+        font-size: 2.5rem;
+        font-family: 'Dubai Bold';
+    }
+
+    #subMenuBox .sMenuBox {
+        display: none;
+    }
+
+    #subMenuBox2 {
+        display: none;
+        margin-top: -3rem;
+    }
+
+    #subMenuBox2 .sMenuBox {
+        width: 100%;
+        margin: 0;
+        font-size: 2rem;
+        padding: 2rem 4rem;
+        padding-right: 0;
+    }
+
+    #subMenuBox2 .sMenuBox:active {
+        background-color: #5681C8;
+    }
+
+    .texto-producto {
+        width: 88%;
+        padding: 6%;
+    }
+
+    .texto-producto h3 {
+        font-size: 2.8rem;
+    }
+
+    .texto-producto p {
+        font-size: 2rem;
+    }
+
+    .price {
+        font-size: 2.6rem;
+        margin: 2rem 0;
+    }
+
+    .add {
+        width: 200px;
+        padding: 2rem 1rem;
+        font-size: 2.3rem;
+    }
+
+    .info-box {
+        grid-template-columns: 1fr;
+        margin: 4rem auto;
+        animation: disabled;
+    }
+
+    .info-box img {
+        height: auto;
+        object-fit: scale-down;
+    }
+
+    .info-box.der {
+        animation: disabled;
+    }
+
+    .text-box {
+        padding: 6rem;
+    }
+
+    .bigBox {
+        font-size: 2rem;
+    }
+
+    .bigBox h2 {
+        font-size: 3rem;
+    }
+
+    .bigBox h3 {
+        font-size: 2.5rem;
+    }
+
+    .bigBox h4 {
+        font-size: 2.5rem;
+    }
+
+    .yText {
+        margin: 1rem 0;
+    }
+
+    /*--- log in ---*/
+    .contenedor-logs {
+        height: 50rem;
+    }
+
+    .logs {
+        width: 42%;
+        padding: 4%;
+    }
+
+    .logs h2 {
+        font-size: 3.6rem;
+        margin: 0 0 1rem 0;
+    }
+
+    .contenedor-logs input {
+        font-size: 2.2rem;
+        padding: 5px;
+        margin: 2rem;
+    }
+
+    .contenedor-logs input[type=submit] {
+        font-size: 2.4rem;
+        padding: 1rem;
+        width: 35%;
+        margin: 1rem 32.5%;
+    }
+
+    .logs span {
+        font-size: 1.8rem;
+    }
+
+    /*------------------------*/
+    .title-bar {
+        padding: 4px 1rem;
+    }
+
+    .totales {
+        font-size: 18px;
+        margin: 1rem 6% 2rem 0;
+    }
+
+    .total {
+        right: -2.3em;
+        font-size: 20px;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+
+    .prev,
+    .next {
+        top: 45%;
+        margin-top: -20px;
+        padding: 8px;
+        font-size: 4em;
+        border-radius: 5px;
+    }
+
+    #dots-container {
+        width: 115.1px;
+        bottom: 30px;
+    }
+
+    .dot {
+        height: 8px;
+        width: 23px;
+    }
+
+    #search {
+        left: 91%;
+    }
+
+    .categories-list {
+        display: grid;
+        grid-template-columns: repeat(2, 3fr);
+        gap: 1.5rem;
+    }
+
+    /*---- login ----*/
+    .contenedor-logs {
+        height: 100vh;
+        padding-bottom: 8rem;
+    }
+
+    .logs {
+        width: 86%;
+        padding: 4%;
+        margin: 0 3%;
+    }
+
+    .contenedor-logs input {
+        width: 94%;
+        font-size: 2rem;
+        padding: 5px;
+        margin: 4% 0 4% 2%;
+    }
+
+    .contenedor-logs input[type=submit] {
+        width: 30%;
+        margin: 1rem 35%;
+    }
+
+    /*--------------------------*/
+    .title-bar {
+        font-size: 15px;
+        padding: 4px 8px;
+        grid-template-columns: 40% 17% 11% 16% 14% 2%;
+    }
+
+    .secc {
+        padding: 0;
+    }
+
+    .item {
+        padding: 8px;
+        grid-template-columns: 40% 17% 11% 16% 14% 2%;
+    }
+
+    .totales {
+        font-size: 18px;
+        margin: 1rem 6% 2rem 0;
+    }
+
+    .total {
+        right: -6%;
+        font-size: 18px;
+    }
+
+
+    /*-------*/
+
+    footer {
+        padding-bottom: 15rem;
+    }
+
+    .footer-menu {
+        margin-left: 2.5%;
+        width: 30%;
+    }
+
+    #joinEmail {
+        width: 60%;
+        margin: 2rem 20% 0;
+        text-align: center;
+    }
+
+    #email {
+        width: 50%;
+    }
+}
+
+@media (max-width: 640px) {
+    #wps {
+        display: none;
+    }
+
+    #wps2 {
+        height: 30px;
+        font-family: 'Dubai Medium';
+        font-size: 2.5rem;
+        width: auto;
+        color: #FB8500;
+        margin: 25px 0;
+        float: left;
+        display: block;
+    }
+
+    .categories-list {
+        display: grid;
+        grid-template-columns: repeat(1, 4fr);
+        gap: 1.5rem;
+    }
+
+    .texto-producto {
+        width: 90%;
+        padding: 5%;
+    }
+
+    .texto-producto h3 {
+        font-size: 2.6rem;
+        margin: 1.4rem 0;
+    }
+
+    .texto-producto p {
+        font-size: 1.8rem;
+    }
+
+    .price {
+        font-size: 2.4rem;
+        margin: 1.5rem 0;
+    }
+
+    .add {
+        width: 180px;
+        font-size: 2rem;
+        margin: 1rem 0 1.5rem;
+    }
+
+    .aboutUs h2 {
+        font-size: 3rem;
+    }
+
+    .text {
+        font-size: 2rem;
+    }
+
+    .text-box {
+        padding: 4rem;
+    }
+
+    .text-box h3 {
+        font-size: 2.8rem;
+        margin: 0;
+    }
+
+    .text-box p {
+        font-size: 2.2rem;
+        margin: 1rem 0 0;
+    }
+
+    .sp {
+        font-size: 3.2rem;
+    }
+
+    #faq h2 {
+        font-size: 2.6rem;
+        margin: 2rem 0;
+    }
+
+    #faq h3 {
+        font-size: 2rem;
+    }
+
+    #faq p {
+        font-size: 1.6rem;
+        margin: 0.5rem 0;
+    }
+
+    .bigBox {
+        width: 90%;
+        padding: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .bigBox h2 {
+        font-size: 2.4rem;
+    }
+
+    .bigBox h3 {
+        font-size: 2rem;
+    }
+
+    .bigBox h4 {
+        font-size: 2rem;
+    }
+
+    .yText {
+        margin: 1rem 0;
+    }
+
+    /*------------------*/
+    .title-bar {
+        font-size: 14px
+    }
+
+    .item {
+        font-size: 14px;
+    }
+
+    /*-------*/
+
+}
+
+@media (max-width: 500px) {
+    #logo {
+        width: 5rem;
+        margin: 15px 0;
+    }
+
+    #wps {
+        display: block;
+        font-size: 1.8rem;
+        margin: 30px 10px;
+        margin-right: 0;
+    }
+
+    #wps2 {
+        display: none;
+    }
+
+    #menuRight {
+        width: auto;
+    }
+
+    #accountBtn {
+        display: none;
+    }
+
+    #cart {
+        display: none;
+    }
+
+    #cell {
+        width: 120px;
+        height: auto;
+        padding: 0.8rem;
+        border-radius: 0 0 15px 15px;
+    }
+
+    #cell h4 {
+        font-size: 1.6rem;
+        margin: auto;
+    }
+
+    #btnCarrito,
+    #btnCuenta {
+        display: block;
+    }
+
+    .prev,
+    .next {
+        font-size: 3em;
+    }
+
+    #dots-container {
+        width: 103.1px;
+        bottom: 22px;
+    }
+
+    .dot {
+        height: 6px;
+        width: 20px;
+    }
+
+    #search {
+        left: 88%;
+    }
+
+    label {
+        font-size: 1.5rem;
+    }
+
+    .texto-producto {
+        width: 92%;
+        padding: 4%;
+    }
+
+    .texto-producto h3 {
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+
+    .texto-producto p {
+        font-size: 1.4rem;
+    }
+
+    .price {
+        font-size: 1.6rem;
+        margin: 1rem 0;
+    }
+
+    .add {
+        width: 140px;
+        font-size: 1.4rem;
+        padding: 1rem;
+        margin: 0.5rem 0 0.75rem;
+    }
+
+    /*----- login -----*/
+    .contenedor-logs {
+        height: 100vh;
+        padding-bottom: 0;
+    }
+
+    .logs h2 {
+        font-size: 3rem;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .contenedor-logs input {
+        font-size: 1.8rem;
+        padding: 5px;
+    }
+
+    .contenedor-logs input[type=submit] {
+        width: 35%;
+        margin: 1rem 32.5%;
+        font-size: 2rem;
+        padding: 0.8rem;
+    }
+
+    .logs span {
+        font-size: 1.6rem;
+    }
+
+    /*----------------------------*/
+
+    .col-25 h2 {
+        font-size: 2.6rem;
+    }
+
+    .title-bar {
+        font-size: 12px;
+        padding: 0;
+        grid-template-columns: 38% 17% 12% 17% 14% 2%;
+    }
+
+    #p-label h3 {
+        margin-left: 4px;
+    }
+
+    .item {
+        font-size: 12px;
+        padding: 8px 4px;
+        grid-template-columns: 38% 17% 12% 17% 14% 2%;
+
+    }
+
+    .delete-btn {
+        width: 10px;
+        height: 10px;
+    }
+
+    .totales {
+        font-size: 16px;
+        margin: 1rem 5% 2rem 0;
+    }
+
+    .total {
+        margin-top: 1rem;
+        font-size: 16px;
+    }
+
+    .shop-buttons button {
+        padding: 0.5rem 1rem;
+        font-size: 18px;
+        border-radius: 50px;
+        margin-left: 2rem;
+    }
+
+
+    /*---------------------------*/
+    footer {
+        padding-bottom: 5%;
+    }
+
+    .grid-footer {
+        height: 150px;
+    }
+
+    .footItem {
+        font-size: 1.4rem;
+    }
+
+    .footer-menu {
+        margin-left: 0;
+        width: 33.33%;
+        text-align: center;
+    }
+
+    .footItem h3 {
+        font-size: 1.8rem;
+    }
+
+    #joinEmail {
+        display: none;
+    }
+
+
+    #copy {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media (max-width: 425px) {
+    .col-25 {
+        height: 100vh;
+    }
+
+    #logo {
+        width: 3rem;
+        margin: 25px 0;
+    }
+
+    #wps {
+        font-size: 1.4rem;
+        margin: 32px 0 32px 5px;
+    }
+
+    .menuBox {
+        padding: 1.4rem;
+    }
+
+    .menuItem {
+        font-size: 2.2rem;
+    }
+
+    #subMenuBox2 {
+        margin-top: -1rem;
+    }
+
+    #subMenuBox2 .sMenuBox {
+        font-size: 1.8rem;
+        padding: 1.2rem 2rem;
+    }
+
+    #search {
+        left: 87%;
+    }
+
+    .text-center {
+        font-size: 2.4rem;
+        margin: 1.6rem 0;
+    }
+
+    .category a {
+        font-size: 1.8rem;
+        padding: 1.6rem;
+    }
+
+    .aboutUs h2 {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .text {
+        font-size: 1.6rem;
+    }
+
+    .text-box {
+        padding: 2rem;
+    }
+
+    .text-box h3 {
+        font-size: 2.2rem;
+    }
+
+    .text-box p {
+        font-size: 1.4rem;
+        margin: 1rem 0 0;
+    }
+
+    .sp {
+        font-size: 2.6rem;
+    }
+
+    #faq h2 {
+        font-size: 2.2rem;
+        margin: 1rem 0;
+    }
+
+    #faq h3 {
+        font-size: 1.8rem;
+    }
+
+    #faq p {
+        font-size: 1.4rem;
+    }
+
+    .bigBox {
+        font-size: 1.4rem;
+    }
+
+    .bigBox h2 {
+        font-size: 2rem;
+    }
+
+    .bigBox h3,
+    .bigBox h4 {
+        font-size: 1.8rem;
+        margin: 1rem 0;
+    }
+
+    .yText {
+        margin: 0.5rem 0;
+    }
+}
+
+@media (max-width: 375px) {
+    #logo {
+        width: 5rem;
+        margin: 15px 0;
+    }
+
+    #wps {
+        display: none;
+    }
+
+    #search {
+        left: 86%;
+    }
+
+    /*----- login -----*/
+    .logs h2 {
+        font-size: 2.4rem;
+    }
+
+    .contenedor-logs input {
+        font-size: 1.6rem;
+        padding: 2.5px;
+    }
+
+    .contenedor-logs input[type=submit] {
+        width: 35%;
+        margin: 1rem 32.5%;
+        font-size: 1.8rem;
+        padding: 0.5rem;
+    }
+
+    #copy {
+        font-size: 1.2rem;
+
+    }
+}
+
+@media (max-width: 320px) {
+    #search {
+        left: 84%;
+    }
+
+    #cell {
+        width: 45%;
+    }
+
+    #cell h4 {
+        font-size: 1.4rem;
+    }
+
+}
