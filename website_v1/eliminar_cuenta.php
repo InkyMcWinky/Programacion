@@ -27,16 +27,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["confirm_delete"])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Account</title>
 </head>
+
 <body>
-    <h1>Delete Account</h1>
-    <p>¿Estás seguro de que quieres eliminar tu cuenta? Esta acción no se puede deshacer.</p>
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <button type="submit" name="confirm_delete">Confirmar eliminación</button>
-    </form>
+    <div id="dltAcc" class="logs">
+        <h2>Delete Account</h2>
+        <p>Are you sure you want to delete your account? </p>
+        <P>This action cannot be undone and you will lose all of your progress...</P>
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <button type="submit" name="confirm_delete">Delete account</button>
+        </form>
+
+    </div>
+
 </body>
+
 </html>

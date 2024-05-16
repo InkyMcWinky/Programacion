@@ -1,23 +1,27 @@
-$(document).ready(function() {
+$(document).ready(function () {
     // Una vez que el documento esté listo, verifica el estado de la sesión
     $.ajax({
         type: 'GET',
         url: 'check_session.php',
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             // Verificar si la sesión está iniciada o no
             if (response.loggedIn === true) {
                 // Actualizar el texto del botón con el nombre del usuario
-                var nombreUsuario = nombre_oculto.innerText;
+                
+                document.getElementById("logg").className = "oculto";
+                /*var nombreUsuario = nombre_oculto.innerText;
                 if (nombreUsuario !== "") {
                     $('#accountBtn h4').text(nombreUsuario);
-                }
+                }*/
+                
+
             } else {
                 // Si no hay una sesión iniciada, mantener el texto del botón como "Log in"
                 $('#accountBtn h4').text('Log in');
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error(error);
         }
     });
@@ -43,7 +47,7 @@ function cargarLogin() {
         url: 'check_session.php', // Ruta al script que verifica la sesión
         type: 'GET',
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             // Si la sesión está iniciada, cargar la página de la cuenta
             if (response.loggedIn === true) {
                 $("#contenedor").load("account.php");
@@ -52,7 +56,7 @@ function cargarLogin() {
                 $("#contenedor").load("login.php");
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error(error);
         }
     });
@@ -91,7 +95,7 @@ $("#btnCuenta").click(function () {
         url: 'check_session.php', // Ruta al script que verifica la sesión
         type: 'GET',
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             // Si la sesión está iniciada, cargar la página de la cuenta
             if (response.loggedIn === true) {
                 $("#contenedor").load("account.php");
@@ -100,7 +104,7 @@ $("#btnCuenta").click(function () {
                 $("#contenedor").load("login.php");
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error(error);
         }
     });
@@ -168,7 +172,7 @@ $("#btnOrders").click(function () {
         url: 'check_session.php', // Ruta al script que verifica la sesión
         type: 'GET',
         dataType: 'json',
-        success: function(response) {
+        success: function (response) {
             // Si la sesión está iniciada, cargar la página de la cuenta
             if (response.loggedIn === true) {
                 $("#contenedor").load("account.php");
@@ -177,7 +181,7 @@ $("#btnOrders").click(function () {
                 $("#contenedor").load("login.php");
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error(error);
         }
     });
@@ -217,4 +221,3 @@ function hidePolicy() {
 
     document.getElementById("policy-shadow").style.display = "none";
 }
-

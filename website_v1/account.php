@@ -58,9 +58,9 @@ if (isset($_SESSION['id'])) {
 
     <div class="divided">
         <nav id="menuAcc" class="menu-a">
-            <div id="btnOrders" class="myitem">Orders</div>
+            <div id="btnOrders" class="myitem" onclick="showOrders()">Orders</div>
 
-            <div id="btnSettings" class="myitem">Settings</div>
+            <div id="btnSettings" class="myitem" onclick="showSettings()">Settings</div>
         </nav>
         <div id="info-c">
             <table id="orders" class="info-client">
@@ -79,7 +79,7 @@ if (isset($_SESSION['id'])) {
             </table>
 
 
-            <div id="set" class="settings">
+            <div id="settings" class="settings">
                 <h3>User information</h3>
                 <table>
                     <tr>
@@ -169,4 +169,5 @@ if (isset($_SESSION['id'])) {
 </div>
 
 
-<script src="javascript/scripts_account.js"></script>
+<script src="javascript/scripts_account.js">
+</script>

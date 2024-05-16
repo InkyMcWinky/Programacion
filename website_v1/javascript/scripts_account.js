@@ -1,3 +1,19 @@
+// Orders
+function showOrders() {
+    document.getElementById('settings').style.display = "none";
+    document.getElementById('orders').style.display = "block";
+}
+
+// Settings
+function showSettings() {
+    document.getElementById("settings").style.display = "block";
+    document.getElementById("orders").style.display = "none";
+}
+/*document.getElementById("btnSettings").addEventListener("click", function () {
+    $("#settings").style.display = "block"
+});*/
+
+
 document.getElementById("btnCh").addEventListener("click", function () {
     $("#contenedor").load("window_name.php");
 });
@@ -29,6 +45,7 @@ $('#btnDeleteAcc').click(function () {
     }
 });
 
+
 $(document).ready(function () {
     // Obtener el nombre de usuario de la sesión PHP
     var nombreUsuario = $('#nombre_oculto').text().trim();
@@ -52,7 +69,6 @@ $(document).ready(function () {
     $('#contrasena').text(contrasenaUsuario);
 
 });
-
 
 
 function cerrarSesion() {

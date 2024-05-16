@@ -2,6 +2,7 @@
 
 include 'conecta.php';
 //include 'check_session.php';
+//echo 'PHP version: ' . phpversion();
 
 ?>
 
@@ -68,7 +69,7 @@ include 'conecta.php';
                         <!-- Boton Log in -->
                         <div id="accountBtn" class="accBtn" onclick="cargarLogin()">
                             <img id="picon" src="images/Profile.png" />
-                            <a href="#">
+                            <a id="logg" href="#">
                                 <h4 id="logIn">Log in</h4>
                             </a>
                         </div>
