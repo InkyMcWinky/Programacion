@@ -169,5 +169,4 @@ if (isset($_SESSION['id'])) {
 </div>
 
 
-<script src="javascript/scripts_account.js">
-</script>
+<script src="javascript/scripts_account.js"></script>

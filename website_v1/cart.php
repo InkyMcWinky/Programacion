@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["checkout"])) {
 
     <div class="shop-buttons">
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-            <button type="submit" id="quote">Pricing request</button>
+            <!---<button type="submit" id="quote">Pricing request</button>--->
             <button type="submit" id="checkout" name="checkout">Checkout</button> <!-- Agregué el nombre "checkout" al botón -->
         </form>
     </div>

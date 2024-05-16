@@ -14,7 +14,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_SE
 
 
     // Ejemplo de consulta (debes adaptarla a tu base de datos)
-    $consulta = $conexion->prepare("SELECT id, nombre, direccion, correo, contraseña FROM usuarios WHERE correo = ?");
+    $consulta = $conexion->prepare("SELECT id, nombre, direccion, correo FROM usuarios WHERE correo = ?");
     $consulta->bind_param("s", $email);
     $consulta->execute();
     $resultado = $consulta->get_result();
@@ -27,17 +27,10 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true && isset($_SE
         $nombreUsuario = $fila['nombre'];
         $direccionUsuario = $fila['direccion']; // Suponiendo que la columna se llama 'direccion'
         $correoUsuario = $fila['correo']; // Nuevo
-        $contrasenaUsuario = $fila['contraseña']; // Nueva
 
-
-        // Obtener la longitud real de la contraseña del usuario
-        $longitudContrasena = strlen($contrasenaUsuario);
-
-        // Generar una cadena de asteriscos del mismo tamaño que la contraseña
-        $contrasenaAsteriscos = str_repeat('*', $longitudContrasena);
 
         // Devolver los datos del usuario junto con la contraseña simulada como una respuesta JSON
-        echo json_encode(array("id" => $idUsuario, "name" => $nombreUsuario, "address" => $direccionUsuario, "email" => $correoUsuario, "password" => $contrasenaAsteriscos));
+        echo json_encode(array("id" => $idUsuario, "name" => $nombreUsuario, "address" => $direccionUsuario, "email" => $correoUsuario));
     } else {
         // Si no se encuentra el usuario en la base de datos, devuelve un mensaje de error
         echo json_encode(array("error" => "No se pudo encontrar el usuario"));

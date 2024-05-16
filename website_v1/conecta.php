@@ -1,10 +1,10 @@
 <?php
     //Informacion para realizar la conexion al servidor
     $servername = "localhost";
-    $database = "proyecto_wps";
-    $username = "root";
-    $password = "";
-    $conexion = new mysqli('localhost', 'root', '', 'proyecto_wps');
+    $database = "u408280728_proyecto_wps";
+    $username = "u408280728_homeofphobic";
+    $password = "Admin4589";
+    $conexion = new mysqli('localhost', 'u408280728_homeofphobic', 'Admin4589', 'u408280728_proyecto_wps');
     //Creamos la conexion
     $conn = mysqli_connect($servername, $username, $password, $database);
     //$rev = mysqli_connect("localhost", "root", "root", "proyecto_wps");

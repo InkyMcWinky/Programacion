@@ -1,6 +1,6 @@
 <?php
 include 'conecta.php';
-$conexion = new mysqli('localhost', 'root', '', 'proyecto_wps');
+$conexion = new mysqli('localhost', 'u408280728_homeofphobic', 'Admin4589', 'u408280728_proyecto_wps');
 
 // Procesar registro
 if (isset($_POST['name']) && isset($_POST['apellido']) && isset($_POST['adress']) && isset($_POST['email']) && isset($_POST['pswd']) && isset($_POST['confirm_pswd']) && isset($_POST['phone'])) {

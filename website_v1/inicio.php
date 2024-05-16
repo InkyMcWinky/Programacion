@@ -36,7 +36,7 @@
 </section-->
 
 <section class="container categories">
-    <h2 class="text-center">Product Categories</h2>
+    <h2 class="text-center">Product Overview</h2>
     <div id="categories-list" class="categories-list">
 
         <?php
